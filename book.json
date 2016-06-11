@@ -1,0 +1,9 @@
+{
+    "title": "Geographic Data Science with PySAL and the pydata stack",
+    "description": "Booklet with material for the workshop at Scipy'16",
+    "gitbook": ">=3.0.0",
+    "plugins": ["katex"],
+    "pdf": {
+        "fontFamily": "Serif"
+    }
+}
