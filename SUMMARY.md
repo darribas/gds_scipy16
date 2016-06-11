@@ -13,7 +13,6 @@
 
 * [Part II](content/part2/README.md)
 
-    * [Spatial clustering](ipynb_md/04_spatial_clustering.md)
-    * [Spatial Regression](ipynb_md/05_spatial_regression.md)
-    * [Points](ipynb_md/06_points.md)
-
+    * [Points](ipynb_md/04_points.md)
+    * [Spatial clustering](ipynb_md/05_spatial_clustering.md)
+    * [Spatial Regression](ipynb_md/06_spatial_regression.md)

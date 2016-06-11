@@ -2,9 +2,9 @@
 
 ### Part I
 
-1. [Software and Tools Installation (10 min)](part1/01_intro.md)
+1. Software and Tools Installation (10 min)
 
-2. [Spatial data processing with PySAL (45 min)](ipynb_md/02_data_processing.md)
+2. Spatial data processing with PySAL (45 min)
 
     a. Input-output
 
@@ -14,7 +14,7 @@
 
 3. Exercise (10 min.)
 
-4. [ESDA with PySAL (45 min)](ipynb_md/03_esda.md)
+4. ESDA with PySAL (45 min)
 
     a. Global Autocorrelation
 
@@ -26,27 +26,27 @@
 
 ### Part II
 
-1. [Spatial clustering a (30 min)](ipynb_md/04_spatial_clustering.md)
+1. Point Patterns (30 min)
+
+   a. Kernel Density Estimation visualization
+ 
+   b. Centrography and distance based statistics
+
+2. Exercise (10 min)
+
+3. Spatial clustering a (30 min)
 
     a. Geodemographic analysis
 
     b. Regionalization
 
-2. Exercise (10 min)
+4. Exercise (30 min)
 
-3. [Spatial Regression (30 min)](ipynb_md/05_spatial_regression.md)
+5. Spatial Regression (30 min)
 
     a.  Overview
 
     c.  Basic spatial regression: spatial lag and error model
-
-4. Exercise (30 min)
-
-5. [Point Patterns (30 min)](ipynb_md/06_points.md)
-
-   a. Kernel Density Estimation visualization
- 
-   b. Centrography and distance based statistics
 
 6. Exercise (10 min)
 
