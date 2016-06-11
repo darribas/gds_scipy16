@@ -1,9 +1,11 @@
 notebooks:
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/02_data_processing.ipynb
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/03_esda.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/04_spatial_clustering.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/05_spatial_regression.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/06_points.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/04_points.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/05_spatial_clustering.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/06_spatial_regression.ipynb
+	rm -fr content/part1/.ipynb_checkpoints/
+	rm -fr content/part2/.ipynb_checkpoints/
 	zip -r gds_scipy16.zip content
 website:
 	gitbook pdf ./ ./gds_scipy16.pdf
