@@ -4,6 +4,7 @@ notebooks:
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/04_spatial_clustering.ipynb
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/05_spatial_regression.ipynb
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/06_points.ipynb
+	zip -r gds_scipy16.zip content
 website:
 	gitbook build
 	git checkout gh-pages
