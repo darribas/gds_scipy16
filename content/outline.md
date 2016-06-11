@@ -28,7 +28,7 @@
 
 1. Point Patterns (30 min)
 
-   a. Kernel Density Estimation visualization
+   a. Point visualization
  
    b. Centrography and distance based statistics
 
