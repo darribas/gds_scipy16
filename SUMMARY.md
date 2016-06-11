@@ -1,6 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
+* [Distribution](distribution.md)
 * [About the authors](content/about.md)
 * [Outline](content/outline.md)
 * [Data](content/data/README.md)
