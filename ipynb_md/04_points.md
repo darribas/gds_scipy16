@@ -5,6 +5,10 @@
 
 This notebook covers a brief introduction on how to visualize and analyze point patterns. To demonstrate this, we will use a dataset of all the AirBnb listings in the city of Austin (check the Data section for more information about the dataset).
 
+* [Data Preparation](#Data-preparation)
+* [Point visualization](#Point-Visualization)
+* [Centrography](#Centrography-and-distance-based-statistics)
+
 Before anything, let us load up the libraries we will use:
 
 
@@ -319,3 +323,5 @@ def create_image90(x_range, y_range, w, h):
 The key advandage of `datashader` is that is decouples the point processing from the plotting. That is the bit that allows it to be scalable to truly large datasets (e.g. millions of points). Essentially, the approach is based on generating a very fine grid, counting points within pixels, and encoding the count into a color scheme. In our map, this is not particularly effective because we do not have too many points (the previous plot is probably a more effective one) and esssentially there is a pixel per location of every point. However, hopefully this example shows how to create this kind of scalable maps.
 
 ## Centrography and distance based statistics
+
+## Exercise
