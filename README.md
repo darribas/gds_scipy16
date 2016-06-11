@@ -17,13 +17,16 @@ libraries such as `matplotlib`, `seaborn`, and `folium` will be used.
 <center>
 <a
 href="http://pysal.org">
-<img src="content/figs/pysal.png" alt="PySAL">
+<img src="content/figs/pysal.png" alt="PySAL"
+ style="width:500px;">
 </a>
 </center>
 
 <center>
 <a
 href="http://geographicdatascience.com">
-<img src="content/figs/gdsl.png" alt="PySAL">
+<img src="content/figs/gdsl.png" alt="PySAL"
+ style="width:500px;">
 </center>
+
 
