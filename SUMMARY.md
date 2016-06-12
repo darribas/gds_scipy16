@@ -7,12 +7,12 @@
 * [Data](content/data/README.md)
 * [Part I](content/part1/README.md)
 
-    * [Software and Tools Installation](content/part1/01_intro.md)
+    * [Software and Tools Installation](content/part1/00_intro.md)
     * [Spatial data processing with PySAL](ipynb_md/01_data_processing.md)
-    * [Spatial weights in PySAL](ipynb_md/02_spatial_weights.md)
-    * [Geovisualization](ipynb_md/04_geovisualization.md)
-    * [ESDA with PySAL](ipynb_md/03_esda.md)
-    * [Space-time analysis](ipynb_md/06_spatial_dynamics.md)
+    * [Geovisualization](ipynb_md/02_geovisualization.md)
+    * [Spatial weights in PySAL](ipynb_md/03_spatial_weights.md)
+    * [ESDA with PySAL](ipynb_md/04_esda.md)
+    * [Space-time analysis](ipynb_md/05_spatial_dynamics.md)
 
 * [Part II](content/part2/README.md)
 
