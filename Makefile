@@ -1,11 +1,9 @@
 notebooks:
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/01_data_processing.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/02_data_processing.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/02_spatial_weights.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/03_esda.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/03_plotting.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/04_geovisualization.ipynb
-	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/06_spatial_dynamics.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/02_geovisualization.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/03_spatial_weights.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/04_esda.ipynb
+	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part1/05_spatial_dynamics.ipynb
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/04_points.ipynb
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/05_spatial_clustering.ipynb
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/06_spatial_regression.ipynb
