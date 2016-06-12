@@ -44,9 +44,11 @@
 
 5. Spatial Regression (30 min)
 
-    a.  Overview
+    a.  Baseline (nonspatial) regression
 
-    c.  Basic spatial regression: spatial lag and error model
+    b.  Exogenous and endogenous spatially lagged regressors
+    
+    c.  Prediction performance of spatial models
 
 6. Exercise (10 min)
 
