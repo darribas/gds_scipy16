@@ -36,7 +36,7 @@ This approach has been tested on Linux, (not yet Mac OS X), and Windows 10.
 
 ### Notes
 
-However, because some packages may be updated by the time the tutorial occurs,
+Because some packages may be updated by the time the tutorial occurs,
 there could be conflicts that arise.
 
 An alternative is to use a pinned environment
@@ -88,6 +88,6 @@ Once this is built you can activate it:
 activate scipy16-pinned
 ```
 
-Note that we don't need to uses the additional conda install calls when using a pinned approach
+Note that we don't need to use the additional conda install calls when using a pinned approach
 since the spec file here was created *after* geojson and folium were conda installed into the
 env.
