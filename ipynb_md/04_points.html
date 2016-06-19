@@ -348,6 +348,7 @@
                                 <h1 id="point-patterns">Point Patterns</h1>
 <blockquote>
 <p><a href="../content/part2/04_points.ipynb"><code>IPYNB</code></a></p>
+<p><strong>NOTE</strong>: some of this material has been ported and adapted from &quot;Lab 9&quot; in <a href="http://darribas.org/gds15/labs/Lab_09.html" _target="blank">Arribas-Bel (2016)</a>.</p>
 </blockquote>
 <p>This notebook covers a brief introduction on how to visualize and analyze point patterns. To demonstrate this, we will use a dataset of all the AirBnb listings in the city of Austin (check the Data section for more information about the dataset).</p>
 <p>Before anything, let us load up the libraries we will use:</p>
@@ -548,7 +549,7 @@ options = dict(line_color=<span class="hljs-keyword">None</span>, fill_color=<sp
 </code></pre>
 <pre><code>&lt;div class=&quot;bk-banner&quot;&gt;
     &lt;a href=&quot;http://bokeh.pydata.org&quot; target=&quot;_blank&quot; class=&quot;bk-logo bk-logo-small bk-logo-notebook&quot;&gt;&lt;/a&gt;
-    &lt;span id=&quot;a0125a61-aa40-4d88-9db2-d2b800c39acb&quot;&gt;Loading BokehJS ...&lt;/span&gt;
+    &lt;span id=&quot;5c0094a0-0ee5-4dba-8405-86719c3d1fa2&quot;&gt;Loading BokehJS ...&lt;/span&gt;
 &lt;/div&gt;
 </code></pre><p>And good to go for mapping!</p>
 <pre><code class="lang-python"><span class="hljs-comment"># <span class="hljs-doctag">NOTE:</span> `show` turned off to be able to compile the website,</span>
@@ -558,7 +559,7 @@ p.add_tile(STAMEN_TERRAIN)
 p.circle(x=x_wb, y=y_wb, **options)
 <span class="hljs-comment">#show(p)</span>
 </code></pre>
-<pre><code>&lt;bokeh.models.renderers.GlyphRenderer at 0x7f6c701fa7d0&gt;
+<pre><code>&lt;bokeh.models.renderers.GlyphRenderer at 0x7fac4f7abc90&gt;
 </code></pre><p>As you can quickly see, <code>bokeh</code> is substantially faster at rendering larger amounts of data.</p>
 <p>The second problem we have spotted with the first scatter is that, when the number of points grows, at some point it becomes impossible to discern anything other than a big blur of color. To some extent, interactivity gets at that problem by allowing the user to zoom in until every point is an entity on its own. However, there exist techniques that allow to summarize the data to be able to capture the overall pattern at once. Traditionally, kernel density estimation (KDE) has been one of the most common solutions by approximating a continuous surface of point intensity. In this context, however, we will explore a more recent alternative suggested by the <a href="https://github.com/bokeh/datashader" _target="blank"><code>datashader</code></a> library (see the <a href="http://www.crest.iu.edu/publications/prints/2014/Cottam2014OutOfCore.pdf" _target="blank">paper</a> if interested in more details).</p>
 <p>Arguably, our dataset is not large enough to justify the use of a reduction technique like datashader, but we will create the plot for the sake of the illustration. Keep in mind, the usefulness of this approach increases the more points you need to be plotting.</p>
@@ -586,7 +587,80 @@ pts[<span class="hljs-string">&apos;count&apos;</span>] = <span class="hljs-numb
 <span class="hljs-comment">#InteractiveImage(p, create_image90)</span>
 </code></pre>
 <p>The key advandage of <code>datashader</code> is that is decouples the point processing from the plotting. That is the bit that allows it to be scalable to truly large datasets (e.g. millions of points). Essentially, the approach is based on generating a very fine grid, counting points within pixels, and encoding the count into a color scheme. In our map, this is not particularly effective because we do not have too many points (the previous plot is probably a more effective one) and esssentially there is a pixel per location of every point. However, hopefully this example shows how to create this kind of scalable maps.</p>
-<h2 id="centrography-and-distance-based-statistics">Centrography and distance based statistics</h2>
+<h2 id="kernel-density-estimation">Kernel Density Estimation</h2>
+<p>A common alternative when the number of points grows is to replace plotting every single point by estimating the continuous observed probability distribution. In this case, we will not be visualizing the points themselves, but an abstracted surface that models the probability of point density over space. The most commonly used method to do this is the so called kernel density estimate (KDE). The idea behind KDEs is to count the number of points in a continious way. Instead of using discrete counting, where you include a point in the count if it is inside a certain boundary and ignore it otherwise, KDEs use functions (kernels) that include points but give different weights to each one depending of how far of the location where we are counting the point is.</p>
+<p>Creating a KDE is very straightfoward in Python. In its simplest form, we can run the following single line of code:</p>
+<pre><code class="lang-python">sns.kdeplot(lst[<span class="hljs-string">&apos;longitude&apos;</span>], lst[<span class="hljs-string">&apos;latitude&apos;</span>], shade=<span class="hljs-keyword">True</span>, cmap=<span class="hljs-string">&apos;viridis&apos;</span>);
+</code></pre>
+<p><img src="04_points_files/04_points_26_0.png" alt="png"></p>
+<p>Now, if we want to include additional layers of data to provide context, we can do so in the same way we would layer up different elements in <code>matplotlib</code>. Let us load first the Zip codes in Austin, for example:</p>
+<pre><code class="lang-python">zc = gpd.read_file(<span class="hljs-string">&apos;../data/Zipcodes.geojson&apos;</span>)
+zc.plot();
+</code></pre>
+<p><img src="04_points_files/04_points_28_0.png" alt="png"></p>
+<p>And, to overlay both layers:</p>
+<pre><code class="lang-python">f, ax = plt.subplots(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>))
+
+zc.plot(color=<span class="hljs-string">&apos;white&apos;</span>, linewidth=<span class="hljs-number">0.1</span>, ax=ax)
+
+sns.kdeplot(lst[<span class="hljs-string">&apos;longitude&apos;</span>], lst[<span class="hljs-string">&apos;latitude&apos;</span>], \
+            shade=<span class="hljs-keyword">True</span>, cmap=<span class="hljs-string">&apos;Purples&apos;</span>, \
+            ax=ax);
+
+ax.set_axis_off()
+plt.axis(<span class="hljs-string">&apos;equal&apos;</span>)
+plt.show()
+</code></pre>
+<p><img src="04_points_files/04_points_30_0.png" alt="png"></p>
+<!--
+## `bokeh` alternative
+
+pts.head()
+
+from sklearn.neighbors import KernelDensity
+from sklearn.grid_search import GridSearchCV
+
+# Setup kernel
+kde = KernelDensity(metric='euclidean',
+                    kernel='gaussian', algorithm='ball_tree')
+# Bandwidth selection
+gs = GridSearchCV(kde, \
+                {'bandwidth': np.linspace(0.1, 1.0, 30)}, \
+                cv=3)
+%time cv = gs.fit(pts[['x', 'y']].values)
+bw = cv.best_params_['bandwidth']
+kde.bandwidth = bw
+# Fit the KDE
+kde.fit(pts[['x', 'y']].values)
+
+# Build a mesh
+minX, minY = pts[['x', 'y']].values.min(axis=0)
+maxX, maxY = pts[['x', 'y']].values.max(axis=0)
+bbox = [minX, minY, maxX, maxY]
+mn = 100
+mx = np.linspace(minX, maxX, mn)
+my = np.linspace(minY, maxY, mn)
+mxx, myy = np.meshgrid(mx, my)
+mxxyy = np.hstack((mxx.reshape(-1, 1), myy.reshape(-1, 1)))
+# Fit to the KDE
+d = kde.score_samples(mxxyy).reshape(mn, mn)
+
+print pts.min()['x'], pts.min()['y']
+
+print pts.max()['x'], pts.max()['y']
+
+mxxyy.max(axis=0)
+
+from bokeh.plotting import figure, show
+
+p = base_plot()
+p.add_tile(STAMEN_TERRAIN)
+
+p.image(image=[d], x=minX, y=minY, dw=maxX-minX, dh=maxY-minY, \
+        alpha=0.001, palette="Blues9")
+
+show(p)
+-->
 <h2 id="exercise">Exercise</h2>
 <blockquote>
 <p><em>Split the dataset by type of property and create a map for the five most common types.</em></p>
@@ -659,7 +733,7 @@ Name: property_type, dtype: int64
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Points","level":"1.8.1","depth":2,"next":{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/05_spatial_clustering.md","ref":"ipynb_md/05_spatial_clustering.md","articles":[]},"previous":{"title":"Part II","level":"1.8","depth":1,"path":"content/part2/README.md","ref":"content/part2/README.md","articles":[{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/04_points.md","ref":"ipynb_md/04_points.md","articles":[]},{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/05_spatial_clustering.md","ref":"ipynb_md/05_spatial_clustering.md","articles":[]},{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/06_spatial_regression.md","ref":"ipynb_md/06_spatial_regression.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/04_points.md","mtime":"2016-06-19T17:56:00.556Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-19T19:43:41.641Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Points","level":"1.8.1","depth":2,"next":{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/05_spatial_clustering.md","ref":"ipynb_md/05_spatial_clustering.md","articles":[]},"previous":{"title":"Part II","level":"1.8","depth":1,"path":"content/part2/README.md","ref":"content/part2/README.md","articles":[{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/04_points.md","ref":"ipynb_md/04_points.md","articles":[]},{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/05_spatial_clustering.md","ref":"ipynb_md/05_spatial_clustering.md","articles":[]},{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/06_spatial_regression.md","ref":"ipynb_md/06_spatial_regression.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/04_points.md","mtime":"2016-06-19T19:46:14.345Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-19T19:55:21.120Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
