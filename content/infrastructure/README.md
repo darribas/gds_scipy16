@@ -65,7 +65,24 @@ Once this is built you can activate it:
 source activate scipy16-pinned
 ```
 
-or, on Windows:
+On Windows the process is
+
+```
+activate scipy16
+conda list --explicit > scipy16-windows-spec-file.txt
+```
+
+This creates the file
+[scipy16-windows-spec-file.txt](scipy16-windows-spec-file.txt) that can be used on
+a different machine but same platform to create an identical environment using
+the command:
+
+```
+conda create --name scipy16-pinned --file scipy16-windows-spec-file.txt
+```
+
+Once this is built you can activate it:
+
 ```
 activate scipy16-pinned
 ```
