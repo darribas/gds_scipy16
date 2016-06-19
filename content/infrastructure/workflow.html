@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>Part II · Geographic Data Science with PySAL and the pydata stack</title>
+        <title>Development notes · Geographic Data Science with PySAL and the pydata stack</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -61,10 +61,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../../ipynb_md/04_points.html" />
     
-    
-    <link rel="prev" href="../../ipynb_md/03_esda.html" />
+    <link rel="prev" href="../../ipynb_md/06_spatial_regression.html" />
     
 
     </head>
@@ -132,9 +130,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../infrastructure/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../infrastructure/">
+                <a href="./">
             
                     
                     Install guide
@@ -229,9 +227,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.8" data-path="./">
+        <li class="chapter " data-level="1.8" data-path="../part2/">
             
-                <a href="./">
+                <a href="../part2/">
             
                     
                     Part II
@@ -287,9 +285,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../infrastructure/workflow.html">
+        <li class="chapter active" data-level="1.9" data-path="workflow.html">
             
-                <a href="../infrastructure/workflow.html">
+                <a href="workflow.html">
             
                     
                     Development notes
@@ -330,7 +328,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Part II</a>
+        <a href="../.." >Development notes</a>
     </h1>
 </div>
 
@@ -345,7 +343,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="part-ii">Part II</h1>
+                                <h1 id="development-workflow">Development workflow</h1>
+<h2 id="dependencies">Dependencies</h2>
+<p>In addition to the packages required to run the tutorial (see the <a href="./">install
+guide</a> for more detail), you will need the following libraries:</p>
+<ul>
+<li><a href="https://nodejs.org" _target="blank"><code>npm</code> and <code>node.js</code></a></li>
+<li><a href="https://github.com/GitbookIO/gitbook" _target="blank"><code>gitbook</code></a></li>
+<li><a href="https://www.gnu.org/software/make/" _target="blank"><code>make</code></a></li>
+<li><code>cp</code>, <code>rm</code>, and <code>zip</code> Unix utilities.</li>
+</ul>
+<h2 id="workflow">Workflow</h2>
+<p>The overall structure of the workflow is as follows:</p>
+<ol>
+<li>Develop material on Jupyter notebooks and place them under the <code>content/</code>
+folder.</li>
+<li><p>When you want to build the website with the new content run on, the root
+folder:</p>
+<p><code>&gt; make notebooks</code></p>
+</li>
+<li><p>When you want to obtain a new version of the pdf or ebook formats, run on
+the root folder:</p>
+<p><code>&gt; make book</code></p>
+</li>
+<li><p>When you want to push a new version to the website to Github Pages, make
+sure to commit all your changes first on the <code>master</code> branch (assuming your
+remote is named as <code>origin</code>):</p>
+<pre><code>&gt; git add .
+&gt; git commit -m &quot;commit message&quot;
+&gt; git push origin master
+</code></pre><p>Then you can run:</p>
+<p><code>&gt; make website</code></p>
+<p>This will compile a new version of the website, pdf, eupb and mobi files,
+check them in, switch to the <code>gh-pages</code> branch, check the new version of the
+website and push it to Github.</p>
+</li>
+</ol>
 
                                 
                                 </section>
@@ -373,14 +406,10 @@
 
             
                 
-                <a href="../../ipynb_md/03_esda.html" class="navigation navigation-prev " aria-label="Previous page: ESDA with PySAL">
+                <a href="../../ipynb_md/06_spatial_regression.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Spatial Regression">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="../../ipynb_md/04_points.html" class="navigation navigation-next " aria-label="Next page: Points">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -389,7 +418,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Part II","level":"1.8","depth":1,"next":{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/04_points.md","ref":"ipynb_md/04_points.md","articles":[]},"previous":{"title":"ESDA with PySAL","level":"1.7.3","depth":2,"path":"ipynb_md/03_esda.md","ref":"ipynb_md/03_esda.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"content/part2/README.md","mtime":"2016-06-19T17:01:15.077Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-19T19:43:41.641Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Development notes","level":"1.9","depth":1,"previous":{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/06_spatial_regression.md","ref":"ipynb_md/06_spatial_regression.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"content/infrastructure/workflow.md","mtime":"2016-06-19T17:01:15.073Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-19T19:43:41.641Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
