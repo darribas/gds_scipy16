@@ -23,15 +23,16 @@ On Linux/OS X:  `source activate scipy16`
 
 On Windows: `activate scipy16`
 
-We need two additional packages via pip once the environment is activated:
+We need two additional packages once the environment is activated:
 
 ```
-pip install folium geojson
+conda install -c ioos folium=0.2.0
+conda install -c ioos geojson=1.3.2
 ```
 
 From there you can fire up jupyter and open the notebooks for the tutorial.
 
-This approach has been tested on Linux, Mac OS X, and Windows 10.
+This approach has been tested on Linux, (not yet Mac OS X), and Windows 10.
 
 ### Notes
 
@@ -87,6 +88,6 @@ Once this is built you can activate it:
 activate scipy16-pinned
 ```
 
-Note that we don't need to use pip when going the pinned route as the spec
-file here was created *after* geojson and folium were conda installed into the
+Note that we don't need to uses the additional conda install calls when using a pinned approach
+since the spec file here was created *after* geojson and folium were conda installed into the
 env.
