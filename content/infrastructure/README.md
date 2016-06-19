@@ -70,11 +70,6 @@ or, on Windows:
 activate scipy16-pinned
 ```
 
-Finally install the two additional packages via pip:
-
-```
-pip install folium geojson
-```
-
-
-
+Note that we don't need to use pip when going the pinned route as the spec
+file here was created *after* geojson and folium were conda installed into the
+env.
