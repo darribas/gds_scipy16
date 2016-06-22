@@ -14,13 +14,13 @@ following steps:
 2. OS Specific Package Installations
    
    - Linux: `conda create --name gds-scipy16 --file gds-scipy16-linux-spec-file.txt`
-   - Mac: `conda create --name scipy16-pinned --file scipy16-mac-spec-file.txt`
-   - Windows: `conda create --name scipy16-pinned --file scipy16-windows-spec-file.txt`
+   - Mac: `conda create --name gds-scipy16   --file gds-scipy16-mac-spec-file.txt`
+   - Windows: `conda create --name gds-scipy16 --file gds-scipy16-windows-spec-file.txt`
 
 3. Activate your environment
   
-   - Linux/Mac: `source activate scipy16-pinned`
-   - Windows: `activate scipy16-pinned` 
+   - Linux/Mac: `source activate gds-scipy16
+   - Windows: `activate gds-scipy16` 
 
 4. Navigate to the folder `contents`
 5. From a terminal/cmd window `jupyter notebook`
@@ -105,13 +105,13 @@ a different machine but same platform to create an identical environment using
 the command:
 
 ```
-conda create --name scipy16-pinned --file scipy16-windows-spec-file.txt
+conda create --name gds-scipy16 --file scipy16-windows-spec-file.txt
 ```
 
 Once this is built you can activate it:
 
 ```
-activate scipy16-pinned
+activate gds-scipy16
 ```
 
 On Mac OS X this was done with:
@@ -127,13 +127,13 @@ a different machine but same platform to create an identical environment using
 the command:
 
 ```
-conda create --name scipy16-pinned --file scipy16-mac-spec-file.txt
+conda create --name gds-scipy16 --file scipy16-mac-spec-file.txt
 ```
 
 Once this is built you can activate it:
 
 ```
-source activate scipy16-pinned
+source activate gds-scipy16
 ```
 
 
