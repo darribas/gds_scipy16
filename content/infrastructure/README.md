@@ -19,7 +19,7 @@ following steps:
 
 3. Activate your environment
   
-   - Linux/Mac: `source activate gds-scipy16
+   - Linux/Mac: `source activate gds-scipy16`
    - Windows: `activate gds-scipy16` 
 
 4. Navigate to the folder `contents`
@@ -58,14 +58,17 @@ On Windows: `activate gds`
 
 From there you can fire up jupyter and open the notebooks for the tutorial.
 
-This approach has been tested on Linux, (not yet Mac OS X), and Windows 10.
 
 ### Notes
 
-Because some packages may be updated by the time the tutorial occurs,
-there could be conflicts that arise.
+This approach grabs the latest versions of the packages listed in the
+[environment.yml](environment.yml) file while resolving any conflicts.
 
-An alternative is to use a pinned environment
+Because some packages may be updated by the time the tutorial occurs,
+this could cause some differences between the versions used to prepare the
+materials, and possiblity some conflicts.
+
+An alternative that avoides these two possibilities is to use a pinned environment.
 
 ## Pinned Environment
 
@@ -78,7 +81,7 @@ conda list --explicit > gds-scipy16-linux-spec-file.txt
 ```
 
 This creates the file
-[gds-scipy16-linux-spec-file.txt](scipy16-gds-linux-spec-file.txt) that can be used on
+[gds-scipy16-linux-spec-file.txt](gds-scipy16-linux-spec-file.txt) that can be used on
 a different machine but same platform to create an identical environment using
 the command:
 
@@ -96,16 +99,16 @@ On Windows the process is
 
 ```
 activate scipy16
-conda list --explicit > scipy16-windows-spec-file.txt
+conda list --explicit > gds-scipy16-windows-spec-file.txt
 ```
 
 This creates the file
-[scipy16-windows-spec-file.txt](scipy16-windows-spec-file.txt) that can be used on
+[gds-scipy16-windows-spec-file.txt](gds-scipy16-windows-spec-file.txt) that can be used on
 a different machine but same platform to create an identical environment using
 the command:
 
 ```
-conda create --name gds-scipy16 --file scipy16-windows-spec-file.txt
+conda create --name gds-scipy16 --file gds-scipy16-windows-spec-file.txt
 ```
 
 Once this is built you can activate it:
@@ -118,16 +121,16 @@ On Mac OS X this was done with:
 
 ```
 source activate scipy16
-conda list --explicit > scipy16-mac-spec-file.txt
+conda list --explicit > gds-scipy16-mac-spec-file.txt
 ```
 
 This creates the file
-[scipy16-mac-spec-file.txt](scipy16-mac-spec-file.txt) that can be used on
+[gds-scipy16-mac-spec-file.txt](gds-scipy16-mac-spec-file.txt) that can be used on
 a different machine but same platform to create an identical environment using
 the command:
 
 ```
-conda create --name gds-scipy16 --file scipy16-mac-spec-file.txt
+conda create --name gds-scipy16 --file gds-scipy16-mac-spec-file.txt
 ```
 
 Once this is built you can activate it:
@@ -135,8 +138,3 @@ Once this is built you can activate it:
 ```
 source activate gds-scipy16
 ```
-
-
-Note that we don't need to use the additional conda install calls when using a pinned approach
-since the spec file here was created *after* geojson and folium were conda installed into the
-env.
