@@ -1,6 +1,8 @@
-name: scipy16
+name: gds
 channels:
         - conda-forge
+        - ioos
+        - bokeh
 dependencies:
         - numpy
         - pandas
@@ -15,4 +17,12 @@ dependencies:
         - shapely
         - geopy
         - scikit-learn
+        - bokeh
+        - mplleaflet
+        - datashader
+        - geojson
+        - folium
+        - statsmodels
+        - xlrd
+        - xlsxwriter
 

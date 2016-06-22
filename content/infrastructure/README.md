@@ -13,7 +13,7 @@ following steps:
 1. Install Anaconda
 2. OS Specific Package Installations
    
-   - Linux: `conda create --name scipy16-pinned --file scipy16-linux-spec-file.txt`
+   - Linux: `conda create --name gds-scipy16 --file gds-scipy16-linux-spec-file.txt`
    - Mac: `conda create --name scipy16-pinned --file scipy16-mac-spec-file.txt`
    - Windows: `conda create --name scipy16-pinned --file scipy16-windows-spec-file.txt`
 
@@ -51,16 +51,10 @@ conda env create -f environment.yml
 Once this is complete (it may take 10-20 minutes depending on your connection
 and processor) you can activate the environment.
 
-On Linux/OS X:  `source activate scipy16`
+On Linux/OS X:  `source activate gds`
 
-On Windows: `activate scipy16`
+On Windows: `activate gds`
 
-We need two additional packages once the environment is activated:
-
-```
-conda install -c ioos folium=0.2.0
-conda install -c ioos geojson=1.3.2
-```
 
 From there you can fire up jupyter and open the notebooks for the tutorial.
 
@@ -79,23 +73,23 @@ To avoid potential problems induced by package clashes we can use an explicit
 pinning. To do so we first create the spec file. On linux this was done with:
 
 ```
-source activate scipy16
-conda list --explicit > scipy16-linux-spec-file.txt
+source activate gds
+conda list --explicit > gds-scipy16-linux-spec-file.txt
 ```
 
 This creates the file
-[scipy16-linux-spec-file.txt](scipy16-linux-spec-file.txt) that can be used on
+[gds-scipy16-linux-spec-file.txt](scipy16-gds-linux-spec-file.txt) that can be used on
 a different machine but same platform to create an identical environment using
 the command:
 
 ```
-conda create --name scipy16-pinned --file scipy16-linux-spec-file.txt
+conda create --name gds-scipy16 --file gds-scipy16-linux-spec-file.txt
 ```
 
 Once this is built you can activate it:
 
 ```
-source activate scipy16-pinned
+source activate gds-scipy16
 ```
 
 On Windows the process is
