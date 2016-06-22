@@ -30,7 +30,7 @@
 
    a. Point visualization
  
-   b. Centrography and distance based statistics
+   b. Kernel Density Estimation
 
 2. Exercise (10 min)
 

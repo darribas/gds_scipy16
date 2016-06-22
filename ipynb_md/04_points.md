@@ -3,6 +3,8 @@
 
 > [`IPYNB`](../content/part2/04_points.ipynb)
 
+> **NOTE**: some of this material has been ported and adapted from "Lab 9" in [Arribas-Bel (2016)](http://darribas.org/gds15/labs/Lab_09.html).
+
 This notebook covers a brief introduction on how to visualize and analyze point patterns. To demonstrate this, we will use a dataset of all the AirBnb listings in the city of Austin (check the Data section for more information about the dataset).
 
 Before anything, let us load up the libraries we will use:
@@ -258,7 +260,7 @@ options = dict(line_color=None, fill_color='#800080', size=4)
 
     <div class="bk-banner">
         <a href="http://bokeh.pydata.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
-        <span id="a0125a61-aa40-4d88-9db2-d2b800c39acb">Loading BokehJS ...</span>
+        <span id="5c0094a0-0ee5-4dba-8405-86719c3d1fa2">Loading BokehJS ...</span>
     </div>
 
 
@@ -279,7 +281,7 @@ p.circle(x=x_wb, y=y_wb, **options)
 
 
 
-    <bokeh.models.renderers.GlyphRenderer at 0x7f6c701fa7d0>
+    <bokeh.models.renderers.GlyphRenderer at 0x7fac4f7abc90>
 
 
 
@@ -317,7 +319,103 @@ def create_image90(x_range, y_range, w, h):
 
 The key advandage of `datashader` is that is decouples the point processing from the plotting. That is the bit that allows it to be scalable to truly large datasets (e.g. millions of points). Essentially, the approach is based on generating a very fine grid, counting points within pixels, and encoding the count into a color scheme. In our map, this is not particularly effective because we do not have too many points (the previous plot is probably a more effective one) and esssentially there is a pixel per location of every point. However, hopefully this example shows how to create this kind of scalable maps.
 
-## Centrography and distance based statistics
+## Kernel Density Estimation
+
+A common alternative when the number of points grows is to replace plotting every single point by estimating the continuous observed probability distribution. In this case, we will not be visualizing the points themselves, but an abstracted surface that models the probability of point density over space. The most commonly used method to do this is the so called kernel density estimate (KDE). The idea behind KDEs is to count the number of points in a continious way. Instead of using discrete counting, where you include a point in the count if it is inside a certain boundary and ignore it otherwise, KDEs use functions (kernels) that include points but give different weights to each one depending of how far of the location where we are counting the point is.
+
+Creating a KDE is very straightfoward in Python. In its simplest form, we can run the following single line of code:
+
+
+```python
+sns.kdeplot(lst['longitude'], lst['latitude'], shade=True, cmap='viridis');
+```
+
+
+![png](04_points_files/04_points_26_0.png)
+
+
+Now, if we want to include additional layers of data to provide context, we can do so in the same way we would layer up different elements in `matplotlib`. Let us load first the Zip codes in Austin, for example:
+
+
+```python
+zc = gpd.read_file('../data/Zipcodes.geojson')
+zc.plot();
+```
+
+
+![png](04_points_files/04_points_28_0.png)
+
+
+And, to overlay both layers:
+
+
+```python
+f, ax = plt.subplots(1, figsize=(9, 9))
+
+zc.plot(color='white', linewidth=0.1, ax=ax)
+
+sns.kdeplot(lst['longitude'], lst['latitude'], \
+            shade=True, cmap='Purples', \
+            ax=ax);
+
+ax.set_axis_off()
+plt.axis('equal')
+plt.show()
+```
+
+
+![png](04_points_files/04_points_30_0.png)
+
+
+<!--
+## `bokeh` alternative
+
+pts.head()
+
+from sklearn.neighbors import KernelDensity
+from sklearn.grid_search import GridSearchCV
+
+# Setup kernel
+kde = KernelDensity(metric='euclidean',
+                    kernel='gaussian', algorithm='ball_tree')
+# Bandwidth selection
+gs = GridSearchCV(kde, \
+                {'bandwidth': np.linspace(0.1, 1.0, 30)}, \
+                cv=3)
+%time cv = gs.fit(pts[['x', 'y']].values)
+bw = cv.best_params_['bandwidth']
+kde.bandwidth = bw
+# Fit the KDE
+kde.fit(pts[['x', 'y']].values)
+
+# Build a mesh
+minX, minY = pts[['x', 'y']].values.min(axis=0)
+maxX, maxY = pts[['x', 'y']].values.max(axis=0)
+bbox = [minX, minY, maxX, maxY]
+mn = 100
+mx = np.linspace(minX, maxX, mn)
+my = np.linspace(minY, maxY, mn)
+mxx, myy = np.meshgrid(mx, my)
+mxxyy = np.hstack((mxx.reshape(-1, 1), myy.reshape(-1, 1)))
+# Fit to the KDE
+d = kde.score_samples(mxxyy).reshape(mn, mn)
+
+print pts.min()['x'], pts.min()['y']
+
+print pts.max()['x'], pts.max()['y']
+
+mxxyy.max(axis=0)
+
+from bokeh.plotting import figure, show
+
+p = base_plot()
+p.add_tile(STAMEN_TERRAIN)
+
+p.image(image=[d], x=minX, y=minY, dw=maxX-minX, dh=maxY-minY, \
+        alpha=0.001, palette="Blues9")
+
+show(p)
+-->
 
 ## Exercise
 

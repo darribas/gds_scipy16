@@ -3,7 +3,7 @@
 
 > [`IPYNB`](../content/part2/06_spatial_regression.ipynb)
 
-> **NOTE**: much of this material has been ported and adapted from the Spatial Econometrics note in [Arribas-Bel (2016b)](http://darribas.org/spa_notes).
+> **NOTE**: some of this material has been ported and adapted from the Spatial Econometrics note in [Arribas-Bel (2016b)](http://darribas.org/spa_notes).
 
 This notebook covers a brief and gentle introduction to spatial econometrics in Python. To do that, we will use a set of Austin properties listed in AirBnb.
 
@@ -28,10 +28,6 @@ import geopandas as gpd
 
 sns.set(style="whitegrid")
 ```
-
-    /home/dani/anaconda/envs/pydata/lib/python2.7/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-      warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
-
 
 Let us also set the paths to all the files we will need throughout the tutorial, which is only the original table of listings:
 
@@ -99,17 +95,14 @@ w = ps.knnW_from_array(lst.loc[\
                                yxs.index, \
                               ['longitude', 'latitude']\
                               ].values)
-w.transform = 'T'
+w.transform = 'R'
 w
 ```
 
-    unsupported weights transformation
 
 
 
-
-
-    <pysal.weights.weights.W at 0x7f3c066107d0>
+    <pysal.weights.weights.W at 0x7f218e902890>
 
 
 
@@ -188,12 +181,29 @@ Including a spatial weights object in the regression buys you an extra bit: the 
 
 ## Spatially lagged exogenous regressors (`WX`)
 
-The first and most straightforward way to introduce space is by "spatially lagging" one of the explanatory variables.
+The first and most straightforward way to introduce space is by "spatially lagging" one of the explanatory variables. Mathematically, this can be expressed as follows:
+
+$$
+\ln(P_i) = \alpha + \beta X_i + \delta \sum_j w_{ij} X'_i + \epsilon_i
+$$
+
+where $X'_i$ is a subset of $X_i$, although it could encompass all of the explanatory variables, and $w_{ij}$ is the $ij$-th cell of a spatial weights matrix $W$. Because $W$ assigns non-zero values only to spatial neighbors, if $W$ is row-standardized (customary in this context), then $\sum_j w_{ij} X'_i$ captures the average value of $X'_i$ in the surroundings of location $i$. This is what we call the *spatial lag* of $X_i$. Also, since it is a spatial transformation of an explanatory variable, the standard estimation approach -OLS- is sufficient: spatially lagging the variables does not violate any of the assumptions on which OLS relies.
+
+Usually, we will want to spatially lag variables that we think may affect the price of a house in a given location. For example, one could think that pools represent a visual amenity. If that is the case, then listed properties surrounded by other properties with pools might, everything else equal, be more expensive. To calculate the number of pools surrounding each property, we can build an alternative weights matrix that we do not row-standardize:
 
 
 ```python
-yxs_w = yxs.assign(w_pool=ps.lag_spatial(w, yxs['pool'].values))
+w_pool = ps.knnW_from_array(lst.loc[\
+                               yxs.index, \
+                              ['longitude', 'latitude']\
+                              ].values)
+yxs_w = yxs.assign(w_pool=ps.lag_spatial(w_pool, yxs['pool'].values))
+```
 
+And now we can run the model, which has the same setup as `m1`, with the exception that it includes the number of AirBnb properties with pools surrounding each house:
+
+
+```python
 m2 = ps.spreg.OLS(y.values[:, None], \
                   yxs_w.drop('price', axis=1).values, \
                   w=w, spat_diag=True, \
@@ -259,7 +269,22 @@ print(m2.summary)
     ================================ END OF REPORT =====================================
 
 
+Results are largely consistent with the original model. Also, incidentally, the number of pools surrounding a property does not appear to have any significant effect on the price of a given property. This could be for a host of reasons: maybe AirBnb customers do not value the number of pools surrounding a property where they are looking to stay; but maybe they do but our dataset only allows us to capture the number of pools in *other* AirBnb properties, which is not necessarily a good proxy of the number of pools in the immediate surroundings of a given property.
+
 ## Spatially lagged endogenous regressors (`WY`)
+
+In a similar way to how we have included the spatial lag, one could think the prices of houses surrounding a given property also enter its own price function. In math terms, this implies the following:
+
+$$
+\ln(P_i) = \alpha + \lambda \sum_j w_{ij} \ln(P_i) + \beta X_i + \epsilon_i
+$$
+
+This is essentially what we call a *spatial lag* model in spatial econometrics. Two calls for caution:
+
+1. Unlike before, this specification *does* violate some of the assumptions on which OLS relies. In particular, it is including an endogenous variable on the right-hand side. This means we need a new estimation method to obtain reliable coefficients. The technical details of this go well beyond the scope of this workshop (although, if you are interested, go check [Anselin & Rey, 2015](https://geodacenter.asu.edu/category/access/public/spatial-regress)). But we can offload those to `PySAL` and use the `GM_Lag` class, which implements the state-of-the-art approach to estimate this model.
+1. A more conceptual *gotcha*: you might be tempted to read the equation above as the effect of the price in neighboring locations $j$ on that of location $i$. This is not exactly the exact interpretation. Instead, we need to realize this is all assumed to be a "joint decission": rather than some houses setting their price first and that having a subsequent effect on others, what the equation models is an interdependent process by which each owner sets her own price *taking into account* the price that will be set in neighboring locations. This might read a bit like a technical subtlety and, to some extent, it is; but it is important to keep it in mind when you are interpreting the results.
+
+Let us see how you would run this using `PySAL`:
 
 
 ```python
@@ -295,7 +320,7 @@ print(m3.summary)
                     beds       0.0239548       0.0095848       2.4992528       0.0124455
          guests_included       0.0065147       0.0059651       1.0921407       0.2747713
                     pool       0.0891100       0.0218383       4.0804521       0.0000449
-             W_ln(price)       0.0392530       0.0106212       3.6957202       0.0002193
+             W_ln(price)       0.0785059       0.0212424       3.6957202       0.0002193
     ------------------------------------------------------------------------------------
     Instrumented: W_ln(price)
     Instruments: W_bathrooms, W_bedrooms, W_beds, W_guests_included,
@@ -307,7 +332,11 @@ print(m3.summary)
     ================================ END OF REPORT =====================================
 
 
+As we can see, results are again very similar in all the other variable. It is also very clear that the estimate of the spatial lag of price is statistically significant. This points to evidence that there are processes of spatial interaction between property owners when they set their price.
+
 ## Prediction performance of spatial models
+
+Even if we are not interested in the interpretation of the model to learn more about how alternative factors determine the price of an AirBnb property, spatial econometrics can be useful. In a purely predictive setting, the use of explicitly spatial models is likely to improve accuracy in cases where space plays a key role in the data generating process. To have a quick look at this issue, we can use the mean squared error (MSE), a standard metric of accuracy in the machine learning literature, to evaluate whether explicitly spatial models are better than traditional, non-spatial ones:
 
 
 ```python
@@ -329,6 +358,8 @@ mses.sort_values()
     dtype: float64
 
 
+
+We can see that the inclusion of the number of surrounding pools (which was insignificant) only marginally reduces the MSE. The inclusion of the spatial lag of price, however, does a better job at improving the accuracy of the model.
 
 ## Exercise
 
