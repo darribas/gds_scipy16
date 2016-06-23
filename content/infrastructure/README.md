@@ -22,7 +22,7 @@ following steps:
    - Linux/Mac: `source activate gds-scipy16`
    - Windows: `activate gds-scipy16` 
 
-4. Navigate to the folder `contents`
+4. Navigate to the folder `content` via `cd ..`
 5. From a terminal/cmd window `jupyter notebook`
 
 At this point you can start to open the tutorial notebooks
