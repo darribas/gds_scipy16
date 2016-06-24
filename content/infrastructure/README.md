@@ -22,7 +22,8 @@ the following three platforms:
 
 ## Windows
 
-1. Install Anaconda3-4.0.0-Windows-x86-64
+1. Install
+   [Anaconda3-4.0.0-Windows-x86-64](http://repo.continuum.io/archive/Anaconda3-4.0.0-Windows-x86_64.exe)
 2. open a cmd window
 3. conda update conda
 4. conda config --add channels conda-forge
