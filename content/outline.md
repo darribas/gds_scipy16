@@ -12,7 +12,7 @@
 
     c. Spatial weights
 
-3. Exercise (10 min.)
+3. Exercise (10 min)
 
 4. ESDA with PySAL (45 min)
 
@@ -34,7 +34,7 @@
 
 2. Exercise (10 min)
 
-3. Spatial clustering a (30 min)
+3. Spatial clustering (30 min)
 
     a. Geodemographic analysis
 

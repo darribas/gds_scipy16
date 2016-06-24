@@ -1,0 +1,28 @@
+name: gds
+channels:
+        - conda-forge
+        - ioos
+        - bokeh
+dependencies:
+        - numpy
+        - pandas
+        - matplotlib
+        - jupyter
+        - seaborn
+        - pip
+        - geopandas
+        - pysal
+        - cartopy
+        - pyproj
+        - shapely
+        - geopy
+        - scikit-learn
+        - bokeh
+        - mplleaflet
+        - datashader
+        - geojson
+        - folium
+        - statsmodels
+        - xlrd
+        - xlsxwriter
+
