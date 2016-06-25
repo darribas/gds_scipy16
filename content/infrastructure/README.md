@@ -48,7 +48,7 @@ The workshop depends on the following libraries/versions:
 
 5. Install additional dependencies:
 
-`> conda install --name gds-scipy16 geopandas==0.2 mplleaflet==0.0.5 datashader==0.2.0 geojson cartopy==0.14.2 folium==0.2.1`
+`> conda install --name gds-scipy16 geojson geopandas==0.2 mplleaflet==0.0.5 datashader==0.2.0 cartopy==0.14.2 folium==0.2.1`
 
 6. To activate and launch the notebook:
 
@@ -82,4 +82,20 @@ The workshop depends on the following libraries/versions:
 
 > jupyter notebook
 ```
+
+# Testing
+
+Once installed, you can run the notebook `test.ipynb` placed under
+`content/infrastructure/test.ipynb` to make sure everything is correctly
+installed. Follow the instructions in the notebook and, if you do not get any
+error, you are good to go.
+
+# Support
+
+If you have any questions or run into problems, you can open a GitHub issue on
+the projec repository:
+
+> [https://github.com/darribas/gds_scipy16](https://github.com/darribas/gds_scipy16)
+
+Alternatively, you can contact [Serge Rey](mailto:sjsrey@gmail.com) or [Dani Arribas-Bel](mailto:D.Arribas-Bel@liv.ac.uk).
 
