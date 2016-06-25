@@ -21,10 +21,6 @@ import matplotlib.pyplot as plt
 import mplleaflet as mpll
 ```
 
-    /home/dani/anaconda/envs/pydata/lib/python2.7/site-packages/matplotlib/font_manager.py:273: UserWarning: Matplotlib is building the font cache using fc-list. This may take a moment.
-      warnings.warn('Matplotlib is building the font cache using fc-list. This may take a moment.')
-
-
 ## Data preparation
 
 Let us first set the paths to the datasets we will be using:
@@ -185,14 +181,19 @@ The most straighforward way to get a first glimpse of the distribution of the da
 
 
 ```python
+sns.jointplot?
+```
+
+
+```python
 sns.jointplot(x="longitude", y="latitude", data=lst);
 ```
 
 
-![png](04_points_files/04_points_13_0.png)
+![png](04_points_files/04_points_14_0.png)
 
 
-Now this does not neccesarily tell us much about the dataset or the distribution of locations within Austin. There are two main challenges in interpreting the plot: one, there is lack of context, which means the points are not identifiable over space (unless you are so familiar with lon/lat pairs that they have a clear meaning to you); and two, in the center of the plot, there are so many points that it is hard to tell any patter other than a big blurb of blue.
+Now this does not neccesarily tell us much about the dataset or the distribution of locations within Austin. There are two main challenges in interpreting the plot: one, there is lack of context, which means the points are not identifiable over space (unless you are so familiar with lon/lat pairs that they have a clear meaning to you); and two, in the center of the plot, there are so many points that it is hard to tell any pattern other than a big blurb of blue.
 
 Let us first focus on the first problem, geographical context. The quickest and easiest way to provide context to this set of points is to overlay a general map. If we had an image with the map or a set of several data sources that we could aggregate to create a map, we could build it from scratch. But in the XXI Century, the easiest is to overlay our point dataset on top of a web map. In this case, we will use [Leaflet](http://leafletjs.com/), and we will convert our underlying `matplotlib` points with `mplleaflet`. The full dataset (+5k observations) is a bit too much for leaflet to plot it directly on screen, so we will obtain a random sample of 100 points:
 
@@ -209,10 +210,10 @@ lst.iloc[rids[:100], :].plot(kind='scatter', x='longitude', y='latitude', \
 ```
 
 
-![png](04_points_files/04_points_15_0.png)
+![png](04_points_files/04_points_16_0.png)
 
 
-This map allows us to get a much better sense of where the points are and what type of location they might be in. For example, now we can see that the bigh blue blurb has to do with the urbanized core of Austin.
+This map allows us to get a much better sense of where the points are and what type of location they might be in. For example, now we can see that the big blue blurb has to do with the urbanized core of Austin.
 
 ### `bokeh` alternative
 
@@ -260,7 +261,7 @@ options = dict(line_color=None, fill_color='#800080', size=4)
 
     <div class="bk-banner">
         <a href="http://bokeh.pydata.org" target="_blank" class="bk-logo bk-logo-small bk-logo-notebook"></a>
-        <span id="5c0094a0-0ee5-4dba-8405-86719c3d1fa2">Loading BokehJS ...</span>
+        <span id="efa98bda-2ccf-4dbf-ae97-94033d60c79b">Loading BokehJS ...</span>
     </div>
 
 
@@ -281,7 +282,7 @@ p.circle(x=x_wb, y=y_wb, **options)
 
 
 
-    <bokeh.models.renderers.GlyphRenderer at 0x7fac4f7abc90>
+    <bokeh.models.renderers.GlyphRenderer at 0x1052bb5f8>
 
 
 
@@ -331,7 +332,7 @@ sns.kdeplot(lst['longitude'], lst['latitude'], shade=True, cmap='viridis');
 ```
 
 
-![png](04_points_files/04_points_26_0.png)
+![png](04_points_files/04_points_27_0.png)
 
 
 Now, if we want to include additional layers of data to provide context, we can do so in the same way we would layer up different elements in `matplotlib`. Let us load first the Zip codes in Austin, for example:
@@ -343,7 +344,7 @@ zc.plot();
 ```
 
 
-![png](04_points_files/04_points_28_0.png)
+![png](04_points_files/04_points_29_0.png)
 
 
 And, to overlay both layers:
@@ -364,7 +365,7 @@ plt.show()
 ```
 
 
-![png](04_points_files/04_points_30_0.png)
+![png](04_points_files/04_points_31_0.png)
 
 
 <!--
@@ -455,3 +456,8 @@ lst.property_type.groupby(lst.property_type)\
     Name: property_type, dtype: int64
 
 
+
+
+```python
+
+```

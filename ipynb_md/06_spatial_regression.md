@@ -9,7 +9,7 @@ This notebook covers a brief and gentle introduction to spatial econometrics in 
 
 The core idea of spatial econometrics is to introduce a formal representation of space into the statistical framework for regression. This can be done in many ways: by including predictors based on space (e.g. distance to relevant features), by splitting the datasets into subsets that map into different geographical regions (e.g. [spatial regimes](http://pysal.readthedocs.io/en/latest/library/spreg/regimes.html)), by exploiting close distance to other observations to borrow information in the estimation (e.g. [kriging](https://en.wikipedia.org/wiki/Kriging)), or by introducing variables that put in relation their value at a given location with those in nearby locations, to give a few examples. Some of these approaches can be implemented with standard non-spatial techniques, while others require bespoke models that can deal with the issues introduced. In this short tutorial, we will focus on the latter group. In particular, we will introduce some of the most commonly used methods in the field of spatial econometrics.
 
-The example we will use to demonstrate this draws on hedonic house price modelling. This a well-established methodology that was developed by [Rosen (1974)](https://en.wikipedia.org/wiki/Kriging) that is capable of recovering the marginal willingness to pay for goods or services that are not traded in the market. In other words, this allows us to put an implicit price on things such as living close to a park or in a neighborhood with good quality of air. In addition, since hedonic models are based on linear regression, the technique can also be used to obtain predictions of house prices.
+The example we will use to demonstrate this draws on hedonic house price modelling. This a well-established methodology that was developed by [Rosen (1974)](https://www.sonoma.edu/users/c/cuellar/econ421/rosen-hedonic.pdf) that is capable of recovering the marginal willingness to pay for goods or services that are not traded in the market. In other words, this allows us to put an implicit price on things such as living close to a park or in a neighborhood with good quality of air. In addition, since hedonic models are based on linear regression, the technique can also be used to obtain predictions of house prices.
 
 ## Data
 
@@ -102,7 +102,7 @@ w
 
 
 
-    <pysal.weights.weights.W at 0x7f218e902890>
+    <pysal.weights.weights.W at 0x11bdb5358>
 
 
 

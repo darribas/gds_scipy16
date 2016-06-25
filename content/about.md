@@ -32,3 +32,10 @@ different
 levels on spatial analysis and econometrics, Python and open source scientific
 computing.
 
+# Acknowledgements
+
+This document has also received contributions from the following people:
+
+* Levi John Wolf.
+* Wei Kan.
+
