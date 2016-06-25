@@ -8,7 +8,6 @@
 * [Data](content/data/README.md)
 * [Part I](content/part1/README.md)
 
-    * [Software and Tools Installation](content/part1/00_intro.md)
     * [Spatial data processing with PySAL](ipynb_md/01_data_processing.md)
     * [Geovisualization](ipynb_md/02_geovisualization.md)
     * [Spatial weights in PySAL](ipynb_md/03_spatial_weights.md)
