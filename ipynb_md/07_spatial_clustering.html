@@ -1,0 +1,1936 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Spatial clustering · Geographic Data Science with PySAL and the pydata stack</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="08_spatial_regression.html" />
+    
+    
+    <link rel="prev" href="06_points.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../distribution.html">
+            
+                <a href="../distribution.html">
+            
+                    
+                    Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../content/about.html">
+            
+                <a href="../content/about.html">
+            
+                    
+                    About the authors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../content/infrastructure/">
+            
+                <a href="../content/infrastructure/">
+            
+                    
+                    Install guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../content/outline.html">
+            
+                <a href="../content/outline.html">
+            
+                    
+                    Outline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../content/data/">
+            
+                <a href="../content/data/">
+            
+                    
+                    Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../content/part1/">
+            
+                <a href="../content/part1/">
+            
+                    
+                    Part I
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../content/part1/00_intro.html">
+            
+                <a href="../content/part1/00_intro.html">
+            
+                    
+                    Software and Tools Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="01_data_processing.html">
+            
+                <a href="01_data_processing.html">
+            
+                    
+                    Spatial data processing with PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="02_geovisualization.html">
+            
+                <a href="02_geovisualization.html">
+            
+                    
+                    Geovisualization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="03_spatial_weights.html">
+            
+                <a href="03_spatial_weights.html">
+            
+                    
+                    Spatial weights in PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="04_esda.html">
+            
+                <a href="04_esda.html">
+            
+                    
+                    ESDA with PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="05_spatial_dynamics.html">
+            
+                <a href="05_spatial_dynamics.html">
+            
+                    
+                    Space-time analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../content/part2/">
+            
+                <a href="../content/part2/">
+            
+                    
+                    Part II
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="06_points.html">
+            
+                <a href="06_points.html">
+            
+                    
+                    Points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.2" data-path="07_spatial_clustering.html">
+            
+                <a href="07_spatial_clustering.html">
+            
+                    
+                    Spatial clustering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="08_spatial_regression.html">
+            
+                <a href="08_spatial_regression.html">
+            
+                    
+                    Spatial Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../content/infrastructure/workflow.html">
+            
+                <a href="../content/infrastructure/workflow.html">
+            
+                    
+                    Development notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Spatial clustering</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="spatial-clustering">Spatial Clustering</h1>
+<blockquote>
+<p><a href="../content/part2/07_spatial_clustering.ipynb"><code>IPYNB</code></a></p>
+<p><strong>NOTE</strong>: much of this material has been ported and adapted from &quot;Lab 8&quot; in <a href="http://darribas.org/gds15" target="_blank">Arribas-Bel (2016)</a>.</p>
+</blockquote>
+<p>This notebook covers a brief introduction to spatial regression. To demonstrate this, we will use a dataset of all the AirBnb listings in the city of Austin (check the Data section for more information about the dataset).</p>
+<p>Many questions and topics are complex phenomena that involve several dimensions and are hard to summarize into a single variable. In statistical terms, we call this family of problems <em>multivariate</em>, as oposed to <em>univariate</em> cases where only a single variable is considered in the analysis. Clustering tackles this kind of questions by reducing their dimensionality -the number of relevant variables the analyst needs to look at- and converting it into a more intuitive set of classes that even non-technical audiences can look at and make sense of. For this reason, it is widely use in applied contexts such as policymaking or marketing. In addition, since these methods do not require many preliminar assumptions about the structure of the data, it is a commonly used exploratory tool, as it can quickly give clues about the shape, form and content of a dataset.</p>
+<p>The core idea of statistical clustering is to summarize the information contained in several variables by creating a relatively small number of categories. Each observation in the dataset is then assigned to one, and only one, category depending on its values for the variables originally considered in the classification. If done correctly, the exercise reduces the complexity of a multi-dimensional problem while retaining all the meaningful information contained in the original dataset. This is because, once classified, the analyst only needs to look at in which category every observation falls into, instead of considering the multiple values associated with each of the variables and trying to figure out how to put them together in a coherent sense. When the clustering is performed on observations that represent areas, the technique is often called geodemographic analysis.</p>
+<p>The basic premise of the exercises we will be doing in this notebook is that, through the characteristics of the houses listed in AirBnb, we can learn about the geography of Austin. In particular, we will try to classify the city&apos;s zipcodes into a small number of groups that will allow us to extract some patterns about the main kinds of houses and areas in the city.</p>
+<h2 id="data">Data</h2>
+<p>Before anything, let us load up the libraries we will use:</p>
+<pre><code class="lang-python">%matplotlib inline
+
+<span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> pysal <span class="hljs-keyword">as</span> ps
+<span class="hljs-keyword">import</span> geopandas <span class="hljs-keyword">as</span> gpd
+<span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> cluster
+<span class="hljs-keyword">from</span> sklearn.preprocessing <span class="hljs-keyword">import</span> scale
+
+sns.set(style=<span class="hljs-string">&quot;whitegrid&quot;</span>)
+</code></pre>
+<p>Let us also set the paths to all the files we will need throughout the tutorial:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Adjust this to point to the right file in your computer</span>
+abb_link = <span class="hljs-string">&apos;../data/listings.csv.gz&apos;</span>
+zc_link = <span class="hljs-string">&apos;../data/Zipcodes.geojson&apos;</span>
+</code></pre>
+<p>Before anything, let us load the main dataset:</p>
+<pre><code class="lang-python">lst = pd.read_csv(abb_link)
+</code></pre>
+<p>Originally, this is provided at the individual level. Since we will be working in terms of neighborhoods and areas, we will need to aggregate them to that level. For this illustration, we will be using the following subset of variables:</p>
+<pre><code class="lang-python">varis = [<span class="hljs-string">&apos;bedrooms&apos;</span>, <span class="hljs-string">&apos;bathrooms&apos;</span>, <span class="hljs-string">&apos;beds&apos;</span>]
+</code></pre>
+<p>This will allow us to capture the main elements that describe the &quot;look and feel&quot; of a property and, by aggregation, of an area or neighborhood. All of the variables above are numerical values, so a sensible way to aggregate them is by obtaining the average (of bedrooms, etc.) per zipcode.</p>
+<pre><code class="lang-python">aves = lst.groupby(<span class="hljs-string">&apos;zipcode&apos;</span>)[varis].mean()
+aves.info()
+</code></pre>
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Float64Index: 47 entries, 33558.0 to 78759.0
+Data columns (total 3 columns):
+bedrooms     47 non-null float64
+bathrooms    47 non-null float64
+beds         47 non-null float64
+dtypes: float64(3)
+memory usage: 1.5 KB
+</code></pre><p>In addition to these variables, it would be good to include also a sense of what proportions of different types of houses each zipcode has. For example, one can imagine that neighborhoods with a higher proportion of condos than single-family homes will probably look and feel more urban. To do this, we need to do some data munging:</p>
+<pre><code class="lang-python">types = pd.get_dummies(lst[<span class="hljs-string">&apos;property_type&apos;</span>])
+prop_types = types.join(lst[<span class="hljs-string">&apos;zipcode&apos;</span>])\
+                  .groupby(<span class="hljs-string">&apos;zipcode&apos;</span>)\
+                  .sum()
+prop_types_pct = (prop_types * <span class="hljs-number">100.</span>).div(prop_types.sum(axis=<span class="hljs-number">1</span>), axis=<span class="hljs-number">0</span>)
+prop_types_pct.info()
+</code></pre>
+<pre><code>&lt;class &apos;pandas.core.frame.DataFrame&apos;&gt;
+Float64Index: 47 entries, 33558.0 to 78759.0
+Data columns (total 18 columns):
+Apartment          47 non-null float64
+Bed &amp; Breakfast    47 non-null float64
+Boat               47 non-null float64
+Bungalow           47 non-null float64
+Cabin              47 non-null float64
+Camper/RV          47 non-null float64
+Chalet             47 non-null float64
+Condominium        47 non-null float64
+Earth House        47 non-null float64
+House              47 non-null float64
+Hut                47 non-null float64
+Loft               47 non-null float64
+Other              47 non-null float64
+Tent               47 non-null float64
+Tipi               47 non-null float64
+Townhouse          47 non-null float64
+Treehouse          47 non-null float64
+Villa              47 non-null float64
+dtypes: float64(18)
+memory usage: 7.0 KB
+</code></pre><p>Now we bring both sets of variables together:</p>
+<pre><code class="lang-python">aves_props = aves.join(prop_types_pct)
+</code></pre>
+<p>And since we will be feeding this into the clustering algorithm, we will first standardize the columns:</p>
+<pre><code class="lang-python">db = pd.DataFrame(\
+                 scale(aves_props), \
+                 index=aves_props.index, \
+                 columns=aves_props.columns)\
+       .rename(<span class="hljs-keyword">lambda</span> x: str(int(x)))
+</code></pre>
+<p>Now let us bring geography in:</p>
+<pre><code class="lang-python">zc = gpd.read_file(zc_link)
+zc.plot(color=<span class="hljs-string">&apos;red&apos;</span>);
+</code></pre>
+<p><img src="07_spatial_clustering_files/07_spatial_clustering_18_0.png" alt="png"></p>
+<p>And combine the two:</p>
+<pre><code class="lang-python">zdb = zc[[<span class="hljs-string">&apos;geometry&apos;</span>, <span class="hljs-string">&apos;zipcode&apos;</span>, <span class="hljs-string">&apos;name&apos;</span>]].join(db, on=<span class="hljs-string">&apos;zipcode&apos;</span>)\
+                                         .dropna()
+</code></pre>
+<p>To get a sense of which areas we have lost:</p>
+<pre><code class="lang-python">f, ax = plt.subplots(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>))
+
+zc.plot(color=<span class="hljs-string">&apos;grey&apos;</span>, linewidth=<span class="hljs-number">0</span>, ax=ax)
+zdb.plot(color=<span class="hljs-string">&apos;red&apos;</span>, linewidth=<span class="hljs-number">0.1</span>, ax=ax)
+
+ax.set_axis_off()
+
+plt.show()
+</code></pre>
+<p><img src="07_spatial_clustering_files/07_spatial_clustering_22_0.png" alt="png"></p>
+<h2 id="geodemographic-analysis">Geodemographic analysis</h2>
+<p>The main intuition behind geodemographic analysis is to group disparate areas of a city or region into a small set of classes that capture several characteristics shared by those in the same group. By doing this, we can get a new perspective not only on the types of areas in a city, but on how they are distributed over space. In the context of our AirBnb data analysis, the idea is that we can group different zipcodes of Austin based on the type of houses listed on the website. This will give us a hint into the geography of AirBnb in the Texan tech capital.</p>
+<p>Although there exist many techniques to statistically group observations in a dataset, all of them are based on the premise of using a set of attributes to define classes or categories of observations that are similar <em>within</em> each of them, but differ <em>between</em> groups. How similarity within groups and dissimilarity between them is defined and how the classification algorithm is operationalized is what makes techniques differ and also what makes each of them particularly well suited for specific problems or types of data. As an illustration, we will only dip our toes into one of these methods, K-means, which is probably the most commonly used technique for statistical clustering.</p>
+<p>Technically speaking, we describe the method and the parameters on the following line of code, where we specifically ask for five groups:</p>
+<pre><code class="lang-python">cluster.KMeans?
+</code></pre>
+<pre><code class="lang-python">km5 = cluster.KMeans(n_clusters=<span class="hljs-number">5</span>)
+</code></pre>
+<p>Following the <code>sklearn</code> pipeline approach, all the heavy-lifting of the clustering happens when we <code>fit</code> the model to the data:</p>
+<pre><code class="lang-python">zdb
+</code></pre>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+      <th>zipcode</th>
+      <th>name</th>
+      <th>bedrooms</th>
+      <th>bathrooms</th>
+      <th>beds</th>
+      <th>Apartment</th>
+      <th>Bed &amp; Breakfast</th>
+      <th>Boat</th>
+      <th>Bungalow</th>
+      <th>...</th>
+      <th>Earth House</th>
+      <th>House</th>
+      <th>Hut</th>
+      <th>Loft</th>
+      <th>Other</th>
+      <th>Tent</th>
+      <th>Tipi</th>
+      <th>Townhouse</th>
+      <th>Treehouse</th>
+      <th>Villa</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>(POLYGON ((-97.63657664958002 30.4026577780347...</td>
+      <td>78754</td>
+      <td>AUSTIN</td>
+      <td>-0.558936</td>
+      <td>-0.526237</td>
+      <td>-0.883390</td>
+      <td>-0.703645</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>1.009009</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>(POLYGON ((-97.89001573769271 30.2094119733396...</td>
+      <td>78739</td>
+      <td>AUSTIN</td>
+      <td>-0.852262</td>
+      <td>-1.027555</td>
+      <td>-1.016971</td>
+      <td>-1.108614</td>
+      <td>0.228919</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.786277</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>(POLYGON ((-97.87302802996035 30.4380637200422...</td>
+      <td>78732</td>
+      <td>AUSTIN</td>
+      <td>2.411830</td>
+      <td>2.288255</td>
+      <td>2.559337</td>
+      <td>-0.774075</td>
+      <td>-0.013034</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.602281</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>2.723296</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>(POLYGON ((-98.01875589320069 30.2416650359924...</td>
+      <td>78737</td>
+      <td>AUSTIN</td>
+      <td>0.491860</td>
+      <td>0.343121</td>
+      <td>0.302802</td>
+      <td>-0.916254</td>
+      <td>0.026558</td>
+      <td>-0.147442</td>
+      <td>6.082491</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.483998</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>2.701786</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>(POLYGON ((-97.72792246181841 30.3290554493485...</td>
+      <td>78756</td>
+      <td>AUSTIN</td>
+      <td>0.172221</td>
+      <td>-0.179595</td>
+      <td>0.493154</td>
+      <td>-0.146814</td>
+      <td>-0.201098</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.257288</td>
+      <td>-0.147442</td>
+      <td>1.093925</td>
+      <td>0.262365</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>0.438393</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>(POLYGON ((-97.66539631711731 30.2856390650983...</td>
+      <td>78723</td>
+      <td>AUSTIN</td>
+      <td>0.809783</td>
+      <td>0.576805</td>
+      <td>0.511747</td>
+      <td>-0.616530</td>
+      <td>-0.241688</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.715979</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>1.340248</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>0.374069</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>(POLYGON ((-97.84294910551613 30.3230986344075...</td>
+      <td>78733</td>
+      <td>AUSTIN</td>
+      <td>0.646410</td>
+      <td>0.701923</td>
+      <td>0.449444</td>
+      <td>-0.696414</td>
+      <td>0.590277</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.354449</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>1.772483</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>(POLYGON ((-97.77663063721972 30.3230061422016...</td>
+      <td>78746</td>
+      <td>AUSTIN</td>
+      <td>0.709989</td>
+      <td>1.036906</td>
+      <td>0.699761</td>
+      <td>0.503341</td>
+      <td>-0.243068</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.554560</td>
+      <td>-0.147442</td>
+      <td>0.547089</td>
+      <td>-0.187361</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>1.164644</td>
+      <td>-0.242924</td>
+      <td>0.350606</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>(POLYGON ((-97.79105326806381 30.4504847141011...</td>
+      <td>78750</td>
+      <td>AUSTIN</td>
+      <td>0.339864</td>
+      <td>1.021067</td>
+      <td>0.275115</td>
+      <td>-0.409123</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.731317</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>(POLYGON ((-97.86241464122685 30.2970038099151...</td>
+      <td>78735</td>
+      <td>AUSTIN</td>
+      <td>1.165182</td>
+      <td>1.527942</td>
+      <td>1.286775</td>
+      <td>0.223109</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.283327</td>
+      <td>-0.147442</td>
+      <td>1.987258</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>(POLYGON ((-97.736172946862 30.15986516866584,...</td>
+      <td>78747</td>
+      <td>AUSTIN</td>
+      <td>-0.765989</td>
+      <td>0.380018</td>
+      <td>-0.763168</td>
+      <td>-0.501161</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.818096</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>(POLYGON ((-97.70676595120581 30.3221053986124...</td>
+      <td>78751</td>
+      <td>AUSTIN</td>
+      <td>-0.243801</td>
+      <td>-0.441587</td>
+      <td>-0.180553</td>
+      <td>0.245600</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>1.750125</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.045596</td>
+      <td>-0.147442</td>
+      <td>-0.034226</td>
+      <td>-0.030366</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>(POLYGON ((-98.00621936585073 30.3607912172675...</td>
+      <td>78738</td>
+      <td>AUSTIN</td>
+      <td>0.786911</td>
+      <td>0.412816</td>
+      <td>1.521054</td>
+      <td>0.430265</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.060105</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>(POLYGON ((-97.6233816077967 30.26459422030998...</td>
+      <td>78725</td>
+      <td>AUSTIN</td>
+      <td>0.786911</td>
+      <td>0.233599</td>
+      <td>-0.219306</td>
+      <td>-1.108614</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>1.131739</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>4.095741</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>(POLYGON ((-97.67105719588658 30.4713206458632...</td>
+      <td>78728</td>
+      <td>AUSTIN</td>
+      <td>-1.180096</td>
+      <td>-1.259873</td>
+      <td>-1.220013</td>
+      <td>0.814985</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.422841</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>(POLYGON ((-97.70652535557282 30.2502416627252...</td>
+      <td>78741</td>
+      <td>AUSTIN</td>
+      <td>-0.196593</td>
+      <td>-0.231037</td>
+      <td>-0.207449</td>
+      <td>1.265189</td>
+      <td>-0.262631</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-1.078851</td>
+      <td>-0.147442</td>
+      <td>-0.094470</td>
+      <td>-0.089419</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>0.213892</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>(POLYGON ((-97.68335342189505 30.2143231792978...</td>
+      <td>78744</td>
+      <td>AUSTIN</td>
+      <td>0.280258</td>
+      <td>0.069700</td>
+      <td>0.232518</td>
+      <td>-0.467414</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.566437</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>1.420474</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>(POLYGON ((-97.76605641344037 30.3129541271378...</td>
+      <td>78703</td>
+      <td>AUSTIN</td>
+      <td>0.520842</td>
+      <td>0.435146</td>
+      <td>0.602941</td>
+      <td>0.424690</td>
+      <td>-0.262319</td>
+      <td>-0.147442</td>
+      <td>0.634716</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.326462</td>
+      <td>-0.147442</td>
+      <td>-0.244533</td>
+      <td>0.077739</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>0.050895</td>
+      <td>3.600969</td>
+      <td>0.044915</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>(POLYGON ((-97.82331016792597 30.2348601368125...</td>
+      <td>78749</td>
+      <td>AUSTIN</td>
+      <td>0.281109</td>
+      <td>0.412816</td>
+      <td>0.498593</td>
+      <td>-0.284214</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>1.531686</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.406269</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>0.570104</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>(POLYGON ((-97.9221254299873 30.2930035379774,...</td>
+      <td>78736</td>
+      <td>AUSTIN</td>
+      <td>0.505910</td>
+      <td>0.333164</td>
+      <td>0.324557</td>
+      <td>-0.284214</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.095353</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>6.697635</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>(POLYGON ((-97.70394537118878 30.2825715190553...</td>
+      <td>78722</td>
+      <td>AUSTIN</td>
+      <td>-0.497665</td>
+      <td>-0.867837</td>
+      <td>-0.319014</td>
+      <td>-0.323471</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.613546</td>
+      <td>-0.147442</td>
+      <td>0.112041</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>(POLYGON ((-97.66539631711731 30.2856390650983...</td>
+      <td>78721</td>
+      <td>AUSTIN</td>
+      <td>0.529327</td>
+      <td>-0.031907</td>
+      <td>0.252042</td>
+      <td>-1.017014</td>
+      <td>-0.204711</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>1.174922</td>
+      <td>-0.147442</td>
+      <td>0.224901</td>
+      <td>0.223644</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>(POLYGON ((-97.69186077161216 30.2484769354393...</td>
+      <td>78702</td>
+      <td>AUSTIN</td>
+      <td>0.555498</td>
+      <td>0.221691</td>
+      <td>0.738159</td>
+      <td>-0.745581</td>
+      <td>-0.262104</td>
+      <td>6.782330</td>
+      <td>0.179830</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.804058</td>
+      <td>6.782330</td>
+      <td>1.305373</td>
+      <td>0.007262</td>
+      <td>0.287274</td>
+      <td>-0.147442</td>
+      <td>0.058755</td>
+      <td>-0.242924</td>
+      <td>-0.069795</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>(POLYGON ((-97.84397384513375 30.3935729185546...</td>
+      <td>78730</td>
+      <td>AUSTIN</td>
+      <td>2.004582</td>
+      <td>2.712763</td>
+      <td>1.673336</td>
+      <td>0.906585</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.509206</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>(POLYGON ((-97.73177659202942 30.5876874089334...</td>
+      <td>78681</td>
+      <td>ROUND ROCK</td>
+      <td>-1.180096</td>
+      <td>-1.259873</td>
+      <td>-1.524576</td>
+      <td>2.738584</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-2.236517</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>(POLYGON ((-97.74597901667516 30.3613774432803...</td>
+      <td>78731</td>
+      <td>AUSTIN</td>
+      <td>1.207048</td>
+      <td>1.135483</td>
+      <td>1.284500</td>
+      <td>-0.137476</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>0.948476</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.193457</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>0.712355</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>0.747972</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>(POLYGON ((-97.90409880079483 30.1645969721025...</td>
+      <td>78652</td>
+      <td>MANCHACA</td>
+      <td>-1.180096</td>
+      <td>-1.259873</td>
+      <td>-1.524576</td>
+      <td>-1.108614</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>1.390836</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>(POLYGON ((-97.79207307087505 30.2318294401264...</td>
+      <td>78745</td>
+      <td>AUSTIN</td>
+      <td>0.311501</td>
+      <td>-0.157419</td>
+      <td>0.324885</td>
+      <td>-0.539089</td>
+      <td>-0.240301</td>
+      <td>-0.147442</td>
+      <td>0.096327</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.557969</td>
+      <td>-0.147442</td>
+      <td>-0.164143</td>
+      <td>0.038813</td>
+      <td>4.542171</td>
+      <td>-0.147442</td>
+      <td>-0.037916</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>(POLYGON ((-97.83150003630331 30.1899955351445...</td>
+      <td>78748</td>
+      <td>AUSTIN</td>
+      <td>-0.305871</td>
+      <td>-0.472990</td>
+      <td>-0.461022</td>
+      <td>-0.803280</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.987797</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>3.341732</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>(POLYGON ((-97.73600098711186 30.3785689883760...</td>
+      <td>78757</td>
+      <td>AUSTIN</td>
+      <td>0.313372</td>
+      <td>0.095315</td>
+      <td>0.252042</td>
+      <td>-0.396170</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.517584</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>0.199362</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>(POLYGON ((-97.70739686222652 30.4748248576790...</td>
+      <td>78717</td>
+      <td>AUSTIN</td>
+      <td>-1.180096</td>
+      <td>-0.795237</td>
+      <td>-1.016971</td>
+      <td>0.173786</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.181718</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>(POLYGON ((-97.72137830361672 30.4735808118949...</td>
+      <td>78729</td>
+      <td>AUSTIN</td>
+      <td>-0.618094</td>
+      <td>-0.662484</td>
+      <td>-0.763168</td>
+      <td>0.127986</td>
+      <td>-0.060168</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.163744</td>
+      <td>-0.147442</td>
+      <td>1.804945</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>2.150639</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>(POLYGON ((-98.12139104830618 30.3647789869612...</td>
+      <td>78620</td>
+      <td>DRIPPING SPRINGS</td>
+      <td>-1.180096</td>
+      <td>-1.259873</td>
+      <td>-0.001761</td>
+      <td>-1.108614</td>
+      <td>5.793836</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-2.236517</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>(POLYGON ((-97.7544731627255 30.26506651013847...</td>
+      <td>78704</td>
+      <td>AUSTIN</td>
+      <td>0.353945</td>
+      <td>0.045476</td>
+      <td>0.408821</td>
+      <td>0.317084</td>
+      <td>-0.269318</td>
+      <td>-0.147442</td>
+      <td>0.033138</td>
+      <td>...</td>
+      <td>6.782330</td>
+      <td>-0.225901</td>
+      <td>-0.147442</td>
+      <td>0.440362</td>
+      <td>-0.181166</td>
+      <td>-0.270496</td>
+      <td>6.782330</td>
+      <td>0.727093</td>
+      <td>1.766384</td>
+      <td>-0.066215</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>(POLYGON ((-97.68634026954943 30.3325933205724...</td>
+      <td>78752</td>
+      <td>AUSTIN</td>
+      <td>-0.161881</td>
+      <td>-0.705669</td>
+      <td>-0.368704</td>
+      <td>-0.203391</td>
+      <td>0.365810</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.067919</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>(POLYGON ((-97.56072444145862 30.2490283208835...</td>
+      <td>78724</td>
+      <td>AUSTIN</td>
+      <td>0.786911</td>
+      <td>1.152659</td>
+      <td>0.642507</td>
+      <td>-1.108614</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>1.111809</td>
+      <td>-0.147442</td>
+      <td>1.987258</td>
+      <td>1.951195</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>(POLYGON ((-97.92086446378035 30.4349563110724...</td>
+      <td>78734</td>
+      <td>AUSTIN</td>
+      <td>2.332417</td>
+      <td>2.921850</td>
+      <td>2.880710</td>
+      <td>-0.971214</td>
+      <td>-0.060168</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.872643</td>
+      <td>-0.147442</td>
+      <td>1.804945</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>(POLYGON ((-97.85677348291654 30.1304340182730...</td>
+      <td>78610</td>
+      <td>BUDA</td>
+      <td>-1.180096</td>
+      <td>-1.259873</td>
+      <td>-1.524576</td>
+      <td>2.738584</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-2.236517</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>(POLYGON ((-97.67150729716587 30.4243750876293...</td>
+      <td>78753</td>
+      <td>AUSTIN</td>
+      <td>-0.280893</td>
+      <td>-0.152946</td>
+      <td>-0.480360</td>
+      <td>-0.009414</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.147172</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>3.731173</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>(POLYGON ((-97.8258020623902 30.45545039884336...</td>
+      <td>78726</td>
+      <td>AUSTIN</td>
+      <td>-0.056092</td>
+      <td>-0.662484</td>
+      <td>-0.436851</td>
+      <td>-0.009414</td>
+      <td>3.192057</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-1.718324</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>(POLYGON ((-97.57652979651098 30.5008564155205...</td>
+      <td>78660</td>
+      <td>PFLUGERVILLE</td>
+      <td>-1.180096</td>
+      <td>-1.259873</td>
+      <td>-1.524576</td>
+      <td>2.738584</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-2.236517</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>(POLYGON ((-97.72977818013679 30.2987072033635...</td>
+      <td>78705</td>
+      <td>AUSTIN</td>
+      <td>-0.561441</td>
+      <td>-0.574160</td>
+      <td>-0.505272</td>
+      <td>1.507481</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-1.278896</td>
+      <td>-0.147442</td>
+      <td>0.496669</td>
+      <td>-0.290571</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.188552</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>(POLYGON ((-97.747440320186 30.42161819776979,...</td>
+      <td>78759</td>
+      <td>AUSTIN</td>
+      <td>-0.726172</td>
+      <td>-0.599601</td>
+      <td>-0.938878</td>
+      <td>0.864308</td>
+      <td>-0.121321</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.934390</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>-0.550776</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>3.298890</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>(POLYGON ((-97.69729138340391 30.4400371609576...</td>
+      <td>78727</td>
+      <td>TRAVIS</td>
+      <td>-0.501818</td>
+      <td>-0.538886</td>
+      <td>-0.946956</td>
+      <td>-0.445304</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>0.640349</td>
+      <td>-0.147442</td>
+      <td>-0.565121</td>
+      <td>1.692370</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>(POLYGON ((-97.71223026174552 30.3480047024702...</td>
+      <td>78758</td>
+      <td>AUSTIN</td>
+      <td>-0.406192</td>
+      <td>-0.414388</td>
+      <td>-0.126582</td>
+      <td>0.531175</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-0.333643</td>
+      <td>-0.147442</td>
+      <td>1.610678</td>
+      <td>-0.550776</td>
+      <td>3.460166</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>-0.242924</td>
+      <td>-0.187930</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>(POLYGON ((-97.73598800490392 30.2510129132375...</td>
+      <td>78701</td>
+      <td>AUSTIN</td>
+      <td>-0.162204</td>
+      <td>-0.197384</td>
+      <td>0.264466</td>
+      <td>1.501024</td>
+      <td>-0.276983</td>
+      <td>-0.147442</td>
+      <td>-0.288636</td>
+      <td>...</td>
+      <td>-0.147442</td>
+      <td>-1.729195</td>
+      <td>-0.147442</td>
+      <td>4.075569</td>
+      <td>-0.095872</td>
+      <td>-0.270496</td>
+      <td>-0.147442</td>
+      <td>-0.483586</td>
+      <td>5.321313</td>
+      <td>-0.187930</td>
+    </tr>
+  </tbody>
+</table>
+<p>46 rows &#xD7; 24 columns</p>
+</div>
+
+
+
+
+<pre><code class="lang-python">km5cls = km5.fit(zdb.drop([<span class="hljs-string">&apos;geometry&apos;</span>, <span class="hljs-string">&apos;name&apos;</span>], axis=<span class="hljs-number">1</span>).values)
+</code></pre>
+<p>Now we can extract the classes and put them on a map:</p>
+<pre><code class="lang-python">f, ax = plt.subplots(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>))
+
+zdb.assign(cl=km5cls.labels_)\
+   .plot(column=<span class="hljs-string">&apos;cl&apos;</span>, categorical=<span class="hljs-keyword">True</span>, legend=<span class="hljs-keyword">True</span>, \
+         linewidth=<span class="hljs-number">0.1</span>, edgecolor=<span class="hljs-string">&apos;white&apos;</span>, ax=ax)
+
+ax.set_axis_off()
+
+plt.show()
+</code></pre>
+<p><img src="07_spatial_clustering_files/07_spatial_clustering_30_0.png" alt="png"></p>
+<p>The map above shows a clear pattern: there is a class at the core of the city (number 0, in red), then two other ones in a sort of &quot;urban ring&quot; (number 1 and 3, in green and brown, respectively), and two peripheral sets of areas (number 2 and 4, yellow and green).</p>
+<p>This gives us a good insight into the geographical structure, but does not tell us much about what are the defining elements of these groups. To do that, we can have a peak into the characteristics of the classes. For example, let us look at how the proportion of different types of properties are distributed across clusters:</p>
+<pre><code class="lang-python">cl_pcts = prop_types_pct.rename(<span class="hljs-keyword">lambda</span> x: str(int(x)))\
+                          .reindex(zdb[<span class="hljs-string">&apos;zipcode&apos;</span>])\
+                          .assign(cl=km5cls.labels_)\
+                          .groupby(<span class="hljs-string">&apos;cl&apos;</span>)\
+                          .mean()
+</code></pre>
+<pre><code class="lang-python">f, ax = plt.subplots(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">18</span>, <span class="hljs-number">9</span>))
+cl_pcts.plot(kind=<span class="hljs-string">&apos;barh&apos;</span>, stacked=<span class="hljs-keyword">True</span>, ax=ax, \
+             cmap=<span class="hljs-string">&apos;Set2&apos;</span>, linewidth=<span class="hljs-number">0</span>)
+ax.legend(ncol=<span class="hljs-number">1</span>, loc=<span class="hljs-string">&quot;right&quot;</span>);
+</code></pre>
+<p><img src="07_spatial_clustering_files/07_spatial_clustering_33_0.png" alt="png"></p>
+<p>A few interesting, albeit maybe not completely unsurprising, characteristics stand out. First, most of the locations we have in the dataset are either apartments or houses. However, how they are distributed is interesting. The urban core -cluster 0- distinctively has the highest proportion of condos and lofts. The suburban ring -clusters 1 and 3- is very consistent, with a large share of houses and less apartments, particularly so in the case of cluster 3. Class 4 has only two types of properties, houses and apartments, suggesting there are not that many places listed at AirBnb. Finally, class 3 arises as a more rural and leisure one: beyond apartments, it has a large share of bed &amp; breakfasts.</p>
+<p><strong>Mini Exercise</strong></p>
+<blockquote>
+<p><em>What are the average number of beds, bedrooms and bathrooms for every class?</em></p>
+</blockquote>
+<h2 id="regionalization-analysis-building-meaningful-regions">Regionalization analysis: building (meaningful) regions</h2>
+<p>In the case of analysing spatial data, there is a subset of methods that are of particular interest for many common cases in Geographic Data Science. These are the so-called regionalization techniques. Regionalization methods can take also many forms and faces but, at their core, they all involve statistical clustering of observations with the additional constraint that observations need to be geographical neighbors to be in the same category. Because of this, rather than category, we will use the term area for each observation and region for each class or cluster -hence regionalization, the construction of regions from smaller areas.</p>
+<p>As in the non-spatial case, there are many different algorithms to perform regionalization, and they all differ on details relating to the way they measure (dis)similarity, the process to regionalize, etc. However, same as above too, they all share a few common aspects. In particular, they all take a set of input attributes <em>and</em> a representation of space in the form of a binary spatial weights matrix. Depending on the algorithm, they also require the desired number of output regions into which the areas are aggregated.</p>
+<p>In this example, we are going to create aggregations of zipcodes into groups that have areas where the AirBnb listed location have similar ratings. In other words, we will create delineations for the &quot;quality&quot; or &quot;satisfaction&quot; of AirBnb users. In other words, we will explore what are the boundaries that separate areas where AirBnb users tend to be satisfied about their experience versus those where the ratings are not as high. To do this, we will focus on the <code>review_scores_X</code> set of variables in the original dataset:</p>
+<pre><code class="lang-python">ratings = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lst <span class="hljs-keyword">if</span> <span class="hljs-string">&apos;review_scores_&apos;</span> <span class="hljs-keyword">in</span> i]
+ratings
+</code></pre>
+<pre><code>[&apos;review_scores_rating&apos;,
+ &apos;review_scores_accuracy&apos;,
+ &apos;review_scores_cleanliness&apos;,
+ &apos;review_scores_checkin&apos;,
+ &apos;review_scores_communication&apos;,
+ &apos;review_scores_location&apos;,
+ &apos;review_scores_value&apos;]
+</code></pre><p>Similarly to the case above, we now bring this at the zipcode level. Note that, since they are all scores that range from 0 to 100, we can use averages and we do not need to standardize.</p>
+<pre><code class="lang-python">rt_av = lst.groupby(<span class="hljs-string">&apos;zipcode&apos;</span>)[ratings]\
+           .mean()\
+           .rename(<span class="hljs-keyword">lambda</span> x: str(int(x)))
+</code></pre>
+<p>And we link these to the geometries of zipcodes:</p>
+<pre><code class="lang-python">zrt = zc[[<span class="hljs-string">&apos;geometry&apos;</span>, <span class="hljs-string">&apos;zipcode&apos;</span>]].join(rt_av, on=<span class="hljs-string">&apos;zipcode&apos;</span>)\
+                                 .dropna()
+zrt.info()
+</code></pre>
+<pre><code>&lt;class &apos;geopandas.geodataframe.GeoDataFrame&apos;&gt;
+Int64Index: 43 entries, 0 to 78
+Data columns (total 9 columns):
+geometry                       43 non-null object
+zipcode                        43 non-null object
+review_scores_rating           43 non-null float64
+review_scores_accuracy         43 non-null float64
+review_scores_cleanliness      43 non-null float64
+review_scores_checkin          43 non-null float64
+review_scores_communication    43 non-null float64
+review_scores_location         43 non-null float64
+review_scores_value            43 non-null float64
+dtypes: float64(7), object(2)
+memory usage: 3.4+ KB
+</code></pre><p>In contrast to the standard clustering techniques, regionalization requires a formal representation of topology. This is so the algorithm can impose spatial constraints during the process of clustering the observations. We will use exactly the same approach as in the previous sections of this tutorial for this and build spatial weights objects <code>W</code> with <code>PySAL</code>. For the sake of this illustration, we will consider queen contiguity, but any other rule should work fine as long as there is a rational behind it. Weights constructors currently only work from shapefiles on disk, so we will write our <code>GeoDataFrame</code> first, then create the <code>W</code> object, and remove the files.</p>
+<pre><code class="lang-python">zrt.to_file(<span class="hljs-string">&apos;tmp&apos;</span>)
+w = ps.queen_from_shapefile(<span class="hljs-string">&apos;tmp/tmp.shp&apos;</span>, idVariable=<span class="hljs-string">&apos;zipcode&apos;</span>)
+<span class="hljs-comment"># <span class="hljs-doctag">NOTE:</span> this might not work on Windows</span>
+! rm -r tmp
+w
+</code></pre>
+<pre><code>&lt;pysal.weights.weights.W at 0x11bd5ff98&gt;
+</code></pre><p>Now we are ready to run the regionalization algorithm. In this case we will use the <code>max-p</code> (<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9787.2011.00743.x/abstract" target="_blank">Duque, Anselin &amp; Rey, 2012)</a>, which does not require a predefined number of output regions but instead it takes a target variable that you want to make sure a minimum threshold is met. In our case, since it is based on ratings, we will impose that every resulting region has at least 10% of the total number of reviews. Let us work through what that would mean:</p>
+<pre><code class="lang-python">n_rev = lst.groupby(<span class="hljs-string">&apos;zipcode&apos;</span>)\
+           .sum()\
+           [<span class="hljs-string">&apos;number_of_reviews&apos;</span>]\
+           .rename(<span class="hljs-keyword">lambda</span> x: str(int(x)))\
+           .reindex(zrt[<span class="hljs-string">&apos;zipcode&apos;</span>])
+thr = np.round(<span class="hljs-number">0.1</span> * n_rev.sum())
+thr
+</code></pre>
+<pre><code>6271.0
+</code></pre><p>This means we want every resulting region to be based on at least 6,271 reviews. Now we have all the pieces, let us glue them together through the algorithm:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Set the seed for reproducibility</span>
+np.random.seed(<span class="hljs-number">1234</span>)
+
+z = zrt.drop([<span class="hljs-string">&apos;geometry&apos;</span>, <span class="hljs-string">&apos;zipcode&apos;</span>], axis=<span class="hljs-number">1</span>).values
+maxp = ps.region.Maxp(w, z, thr, n_rev.values[:, <span class="hljs-keyword">None</span>], initial=<span class="hljs-number">1000</span>)
+</code></pre>
+<p>We can check whether the solution is better (lower within sum of squares) than we would have gotten from a purely random regionalization process using the <a href="http://pysal.readthedocs.io/en/latest/library/region/maxp.html#pysal.region.maxp.Maxp.cinference" target="_blank"><code>cinference</code></a> method:</p>
+<pre><code class="lang-python">%%time
+np.random.seed(<span class="hljs-number">1234</span>)
+maxp.cinference(nperm=<span class="hljs-number">999</span>)
+</code></pre>
+<pre><code>CPU times: user 26.2 s, sys: 185 ms, total: 26.4 s
+Wall time: 32.1 s
+</code></pre><p>Which allows us to obtain an empirical p-value:</p>
+<pre><code class="lang-python">maxp.cpvalue
+</code></pre>
+<pre><code>0.022
+</code></pre><p>Which gives us reasonably good confidence that the solution we obtain is more meaningful than pure chance. </p>
+<p>With that out of the way, let us see what the result looks like on a map! First we extract the labels:</p>
+<pre><code class="lang-python">lbls = pd.Series(maxp.area2region).reindex(zrt[<span class="hljs-string">&apos;zipcode&apos;</span>])
+</code></pre>
+<pre><code class="lang-python">f, ax = plt.subplots(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">9</span>, <span class="hljs-number">9</span>))
+
+zrt.assign(cl=lbls.values)\
+   .plot(column=<span class="hljs-string">&apos;cl&apos;</span>, categorical=<span class="hljs-keyword">True</span>, legend=<span class="hljs-keyword">True</span>, \
+         linewidth=<span class="hljs-number">0.1</span>, edgecolor=<span class="hljs-string">&apos;white&apos;</span>, ax=ax)
+
+ax.set_axis_off()
+
+plt.show()
+</code></pre>
+<p><img src="07_spatial_clustering_files/07_spatial_clustering_53_0.png" alt="png"></p>
+<p>The map shows a clear geographical pattern with a western area, another in the North and a smaller one in the East. Let us unpack what each of them is made of:</p>
+<pre><code class="lang-python">zrt[ratings].groupby(lbls.values).mean().T
+</code></pre>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>review_scores_rating</th>
+      <td>96.911817</td>
+      <td>95.326614</td>
+      <td>92.502135</td>
+      <td>96.174762</td>
+      <td>94.418213</td>
+    </tr>
+    <tr>
+      <th>review_scores_accuracy</th>
+      <td>9.767500</td>
+      <td>9.605032</td>
+      <td>9.548751</td>
+      <td>9.607459</td>
+      <td>9.566245</td>
+    </tr>
+    <tr>
+      <th>review_scores_cleanliness</th>
+      <td>9.678277</td>
+      <td>9.558179</td>
+      <td>8.985408</td>
+      <td>9.599824</td>
+      <td>9.520539</td>
+    </tr>
+    <tr>
+      <th>review_scores_checkin</th>
+      <td>9.922450</td>
+      <td>9.797086</td>
+      <td>9.765563</td>
+      <td>9.889927</td>
+      <td>9.754648</td>
+    </tr>
+    <tr>
+      <th>review_scores_communication</th>
+      <td>9.932211</td>
+      <td>9.827390</td>
+      <td>9.794794</td>
+      <td>9.898785</td>
+      <td>9.772752</td>
+    </tr>
+    <tr>
+      <th>review_scores_location</th>
+      <td>9.644754</td>
+      <td>9.548761</td>
+      <td>8.904775</td>
+      <td>9.596744</td>
+      <td>9.412052</td>
+    </tr>
+    <tr>
+      <th>review_scores_value</th>
+      <td>9.678822</td>
+      <td>9.341224</td>
+      <td>9.491638</td>
+      <td>9.614187</td>
+      <td>9.462490</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<p>Although very similar, there are some patterns to be extracted. For example, the East area seems to have lower overall scores.</p>
+<h2 id="exercise">Exercise</h2>
+<blockquote>
+<p><em>Obtain a geodemographic classification with eight classes instead of five and replicate the analysis above</em></p>
+<p><em>Re-run the regionalization exercise imposing a minimum of 5% reviews per area</em></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="06_points.html" class="navigation navigation-prev " aria-label="Previous page: Points">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="08_spatial_regression.html" class="navigation navigation-next " aria-label="Next page: Spatial Regression">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spatial clustering","level":"1.8.2","depth":2,"next":{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/08_spatial_regression.md","ref":"ipynb_md/08_spatial_regression.md","articles":[]},"previous":{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/06_points.md","ref":"ipynb_md/06_points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/07_spatial_clustering.md","mtime":"2016-06-25T00:42:22.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-25T11:14:31.398Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

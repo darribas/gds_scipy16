@@ -1,0 +1,737 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <title>Spatial Regression · Geographic Data Science with PySAL and the pydata stack</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.1.1">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../content/infrastructure/workflow.html" />
+    
+    
+    <link rel="prev" href="07_spatial_clustering.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../distribution.html">
+            
+                <a href="../distribution.html">
+            
+                    
+                    Distribution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../content/about.html">
+            
+                <a href="../content/about.html">
+            
+                    
+                    About the authors
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../content/infrastructure/">
+            
+                <a href="../content/infrastructure/">
+            
+                    
+                    Install guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../content/outline.html">
+            
+                <a href="../content/outline.html">
+            
+                    
+                    Outline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../content/data/">
+            
+                <a href="../content/data/">
+            
+                    
+                    Data
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../content/part1/">
+            
+                <a href="../content/part1/">
+            
+                    
+                    Part I
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../content/part1/00_intro.html">
+            
+                <a href="../content/part1/00_intro.html">
+            
+                    
+                    Software and Tools Installation
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="01_data_processing.html">
+            
+                <a href="01_data_processing.html">
+            
+                    
+                    Spatial data processing with PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.3" data-path="02_geovisualization.html">
+            
+                <a href="02_geovisualization.html">
+            
+                    
+                    Geovisualization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="03_spatial_weights.html">
+            
+                <a href="03_spatial_weights.html">
+            
+                    
+                    Spatial weights in PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="04_esda.html">
+            
+                <a href="04_esda.html">
+            
+                    
+                    ESDA with PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="05_spatial_dynamics.html">
+            
+                <a href="05_spatial_dynamics.html">
+            
+                    
+                    Space-time analysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../content/part2/">
+            
+                <a href="../content/part2/">
+            
+                    
+                    Part II
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="06_points.html">
+            
+                <a href="06_points.html">
+            
+                    
+                    Points
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="07_spatial_clustering.html">
+            
+                <a href="07_spatial_clustering.html">
+            
+                    
+                    Spatial clustering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.8.3" data-path="08_spatial_regression.html">
+            
+                <a href="08_spatial_regression.html">
+            
+                    
+                    Spatial Regression
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../content/infrastructure/workflow.html">
+            
+                <a href="../content/infrastructure/workflow.html">
+            
+                    
+                    Development notes
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Spatial Regression</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="spatial-regression">Spatial Regression</h1>
+<blockquote>
+<p><a href="../content/part2/08_spatial_regression.ipynb"><code>IPYNB</code></a></p>
+<p><strong>NOTE</strong>: some of this material has been ported and adapted from the Spatial Econometrics note in <a href="http://darribas.org/spa_notes" target="_blank">Arribas-Bel (2016b)</a>.</p>
+</blockquote>
+<p>This notebook covers a brief and gentle introduction to spatial econometrics in Python. To do that, we will use a set of Austin properties listed in AirBnb.</p>
+<p>The core idea of spatial econometrics is to introduce a formal representation of space into the statistical framework for regression. This can be done in many ways: by including predictors based on space (e.g. distance to relevant features), by splitting the datasets into subsets that map into different geographical regions (e.g. <a href="http://pysal.readthedocs.io/en/latest/library/spreg/regimes.html" target="_blank">spatial regimes</a>), by exploiting close distance to other observations to borrow information in the estimation (e.g. <a href="https://en.wikipedia.org/wiki/Kriging" target="_blank">kriging</a>), or by introducing variables that put in relation their value at a given location with those in nearby locations, to give a few examples. Some of these approaches can be implemented with standard non-spatial techniques, while others require bespoke models that can deal with the issues introduced. In this short tutorial, we will focus on the latter group. In particular, we will introduce some of the most commonly used methods in the field of spatial econometrics.</p>
+<p>The example we will use to demonstrate this draws on hedonic house price modelling. This a well-established methodology that was developed by <a href="https://www.sonoma.edu/users/c/cuellar/econ421/rosen-hedonic.pdf" target="_blank">Rosen (1974)</a> that is capable of recovering the marginal willingness to pay for goods or services that are not traded in the market. In other words, this allows us to put an implicit price on things such as living close to a park or in a neighborhood with good quality of air. In addition, since hedonic models are based on linear regression, the technique can also be used to obtain predictions of house prices.</p>
+<h2 id="data">Data</h2>
+<p>Before anything, let us load up the libraries we will use:</p>
+<pre><code class="lang-python">%matplotlib inline
+
+<span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
+<span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+<span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+<span class="hljs-keyword">import</span> pysal <span class="hljs-keyword">as</span> ps
+<span class="hljs-keyword">import</span> geopandas <span class="hljs-keyword">as</span> gpd
+
+sns.set(style=<span class="hljs-string">&quot;whitegrid&quot;</span>)
+</code></pre>
+<p>Let us also set the paths to all the files we will need throughout the tutorial, which is only the original table of listings:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Adjust this to point to the right file in your computer</span>
+abb_link = <span class="hljs-string">&apos;../data/listings.csv.gz&apos;</span>
+</code></pre>
+<p>And go ahead and load it up too:</p>
+<pre><code class="lang-python">lst = pd.read_csv(abb_link)
+</code></pre>
+<h2 id="baseline-nonspatial-regression">Baseline (nonspatial) regression</h2>
+<p>Before introducing explicitly spatial methods, we will run a simple linear regression model. This will allow us, on the one hand, set the main principles of hedonic modeling and how to interpret the coefficients, which is good because the spatial models will build on this; and, on the other hand, it will provide a baseline model that we can use to evaluate how meaningful the spatial extensions are.</p>
+<p>Essentially, the core of a linear regression is to explain a given variable -the price of a listing $i$ on AirBnb ($P_i$)- as a linear function of a set of other characteristics we will collectively call $X_i$:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ln</mi><mo>(</mo><msub><mi>P</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3B2;</mi><msub><mi>X</mi><mi>i</mi></msub><mo>+</mo><msub><mi>&#x3F5;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+\ln(P_i) = \alpha + \beta X_i + \epsilon_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base displaystyle textstyle uncramped"><span class="mop">ln</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3F5;</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>For several reasons, it is common practice to introduce the price in logarithms, so we will do so here. Additionally, since this is a probabilistic model, we add an error term $\epsilon_i$ that is assumed to be well-behaved (i.i.d. as a normal).</p>
+<p>For our example, we will consider the following set of explanatory features of each listed property:</p>
+<pre><code class="lang-python">x = [<span class="hljs-string">&apos;host_listings_count&apos;</span>, <span class="hljs-string">&apos;bathrooms&apos;</span>, <span class="hljs-string">&apos;bedrooms&apos;</span>, <span class="hljs-string">&apos;beds&apos;</span>, <span class="hljs-string">&apos;guests_included&apos;</span>]
+</code></pre>
+<p>Additionally, we are going to derive a new feature of a listing from the <code>amenities</code> variable. Let us construct a variable that takes 1 if the listed property has a pool and 0 otherwise:</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">has_pool</span><span class="hljs-params">(a)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">&apos;Pool&apos;</span> <span class="hljs-keyword">in</span> a:
+        <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+lst[<span class="hljs-string">&apos;pool&apos;</span>] = lst[<span class="hljs-string">&apos;amenities&apos;</span>].apply(has_pool)
+</code></pre>
+<p>For convenience, we will re-package the variables:</p>
+<pre><code class="lang-python">yxs = lst.loc[:, x + [<span class="hljs-string">&apos;pool&apos;</span>, <span class="hljs-string">&apos;price&apos;</span>]].dropna()
+y = np.log(\
+           yxs[<span class="hljs-string">&apos;price&apos;</span>].apply(<span class="hljs-keyword">lambda</span> x: float(x.strip(<span class="hljs-string">&apos;$&apos;</span>).replace(<span class="hljs-string">&apos;,&apos;</span>, <span class="hljs-string">&apos;&apos;</span>)))\
+           + <span class="hljs-number">0.000001</span>
+          )
+</code></pre>
+<p>To run the model, we can use the <code>spreg</code> module in <code>PySAL</code>, which implements a standard OLS routine, but is particularly well suited for regressions on spatial data. Also, although for the initial model we do not need it, let us build a spatial weights matrix that connects every observation to its 8 nearest neighbors. This will allow us to get extra diagnostics from the baseline model.</p>
+<pre><code class="lang-python">w = ps.knnW_from_array(lst.loc[\
+                               yxs.index, \
+                              [<span class="hljs-string">&apos;longitude&apos;</span>, <span class="hljs-string">&apos;latitude&apos;</span>]\
+                              ].values)
+w.transform = <span class="hljs-string">&apos;R&apos;</span>
+w
+</code></pre>
+<pre><code>&lt;pysal.weights.weights.W at 0x11bdb5358&gt;
+</code></pre><p>At this point, we are ready to fit the regression:</p>
+<pre><code class="lang-python">m1 = ps.spreg.OLS(y.values[:, <span class="hljs-keyword">None</span>], yxs.drop(<span class="hljs-string">&apos;price&apos;</span>, axis=<span class="hljs-number">1</span>).values, \
+                  w=w, spat_diag=<span class="hljs-keyword">True</span>, \
+                  name_x=yxs.drop(<span class="hljs-string">&apos;price&apos;</span>, axis=<span class="hljs-number">1</span>).columns.tolist(), name_y=<span class="hljs-string">&apos;ln(price)&apos;</span>)
+</code></pre>
+<p>To get a quick glimpse of the results, we can print its summary:</p>
+<pre><code class="lang-python">print(m1.summary)
+</code></pre>
+<pre><code>REGRESSION
+----------
+SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES
+-----------------------------------------
+Data set            :     unknown
+Weights matrix      :     unknown
+Dependent Variable  :   ln(price)                Number of Observations:        5767
+Mean dependent var  :      5.1952                Number of Variables   :           7
+S.D. dependent var  :      0.9455                Degrees of Freedom    :        5760
+R-squared           :      0.4042
+Adjusted R-squared  :      0.4036
+Sum squared residual:    3071.189                F-statistic           :    651.3958
+Sigma-square        :       0.533                Prob(F-statistic)     :           0
+S.E. of regression  :       0.730                Log likelihood        :   -6366.162
+Sigma-square ML     :       0.533                Akaike info criterion :   12746.325
+S.E of regression ML:      0.7298                Schwarz criterion     :   12792.944
+
+------------------------------------------------------------------------------------
+            Variable     Coefficient       Std.Error     t-Statistic     Probability
+------------------------------------------------------------------------------------
+            CONSTANT       4.0976886       0.0223530     183.3171506       0.0000000
+ host_listings_count      -0.0000130       0.0001790      -0.0726772       0.9420655
+           bathrooms       0.2947079       0.0194817      15.1273879       0.0000000
+            bedrooms       0.3274226       0.0159666      20.5067654       0.0000000
+                beds       0.0245741       0.0097379       2.5235601       0.0116440
+     guests_included       0.0075119       0.0060551       1.2406028       0.2148030
+                pool       0.0888039       0.0221903       4.0019209       0.0000636
+------------------------------------------------------------------------------------
+
+REGRESSION DIAGNOSTICS
+MULTICOLLINEARITY CONDITION NUMBER            9.260
+
+TEST ON NORMALITY OF ERRORS
+TEST                             DF        VALUE           PROB
+Jarque-Bera                       2     1358479.047           0.0000
+
+DIAGNOSTICS FOR HETEROSKEDASTICITY
+RANDOM COEFFICIENTS
+TEST                             DF        VALUE           PROB
+Breusch-Pagan test                6        1414.297           0.0000
+Koenker-Bassett test              6          36.756           0.0000
+
+DIAGNOSTICS FOR SPATIAL DEPENDENCE
+TEST                           MI/DF       VALUE           PROB
+Lagrange Multiplier (lag)         1         255.796           0.0000
+Robust LM (lag)                   1          13.039           0.0003
+Lagrange Multiplier (error)       1         278.752           0.0000
+Robust LM (error)                 1          35.995           0.0000
+Lagrange Multiplier (SARMA)       2         291.791           0.0000
+
+================================ END OF REPORT =====================================
+</code></pre><p>Results are largely unsurprising, but nonetheless reassuring. Both an extra bedroom and an extra bathroom increase the final price around 30%. Accounting for those, an extra bed pushes the price about 2%. Neither the number of guests included nor the number of listings the host has in total have a significant effect on the final price.</p>
+<p>Including a spatial weights object in the regression buys you an extra bit: the summary provides results on the diagnostics for spatial dependence. These are a series of statistics that test whether the residuals of the regression are spatially correlated, against the null of a random distribution over space. If the latter is rejected a key assumption of OLS, independently distributed error terms, is violated. Depending on the structure of the spatial pattern, different strategies have been defined within the spatial econometrics literature to deal with them. If you are interested in this, a very recent and good resource to check out is <a href="https://geodacenter.asu.edu/category/access/public/spatial-regress" target="_blank">Anselin &amp; Rey (2015)</a>. The main summary from the diagnostics for spatial dependence is that there is clear evidence to reject the null of spatial randomness in the residuals, hence an explicitly spatial approach is warranted.</p>
+<h2 id="spatially-lagged-exogenous-regressors-wx">Spatially lagged exogenous regressors (<code>WX</code>)</h2>
+<p>The first and most straightforward way to introduce space is by &quot;spatially lagging&quot; one of the explanatory variables. Mathematically, this can be expressed as follows:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ln</mi><mo>(</mo><msub><mi>P</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3B2;</mi><msub><mi>X</mi><mi>i</mi></msub><mo>+</mo><mi>&#x3B4;</mi><msub><mo>&#x2211;</mo><mi>j</mi></msub><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><msubsup><mi>X</mi><mi>i</mi><mrow><mi mathvariant="normal">&#x2032;</mi></mrow></msubsup><mo>+</mo><msub><mi>&#x3F5;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+\ln(P_i) = \alpha + \beta X_i + \delta \sum_j w_{ij} X&apos;_i + \epsilon_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.050005em;"></span><span class="strut bottom" style="height:2.463782em;vertical-align:-1.413777em;"></span><span class="base displaystyle textstyle uncramped"><span class="mop">ln</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.03785em;">&#x3B4;</span><span class="mop op-limits"><span class="vlist"><span style="top:1.177669em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span style="top:-0.000005000000000032756em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="op-symbol large-op mop">&#x2211;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="vlist"><span style="top:0.247em;margin-left:-0.07847em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span style="top:-0.4129999999999999em;margin-right:0.05em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle uncramped"><span class="mord scriptstyle uncramped"><span class="mord mathrm">&#x2032;</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3F5;</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>where $X&apos;<em>i$ is a subset of $X_i$, although it could encompass all of the explanatory variables, and $w</em>{ij}$ is the $ij$-th cell of a spatial weights matrix $W$. Because $W$ assigns non-zero values only to spatial neighbors, if $W$ is row-standardized (customary in this context), then $\sum<em>j w</em>{ij} X&apos;_i$ captures the average value of $X&apos;_i$ in the surroundings of location $i$. This is what we call the <em>spatial lag</em> of $X_i$. Also, since it is a spatial transformation of an explanatory variable, the standard estimation approach -OLS- is sufficient: spatially lagging the variables does not violate any of the assumptions on which OLS relies.</p>
+<p>Usually, we will want to spatially lag variables that we think may affect the price of a house in a given location. For example, one could think that pools represent a visual amenity. If that is the case, then listed properties surrounded by other properties with pools might, everything else equal, be more expensive. To calculate the number of pools surrounding each property, we can build an alternative weights matrix that we do not row-standardize:</p>
+<pre><code class="lang-python">w_pool = ps.knnW_from_array(lst.loc[\
+                               yxs.index, \
+                              [<span class="hljs-string">&apos;longitude&apos;</span>, <span class="hljs-string">&apos;latitude&apos;</span>]\
+                              ].values)
+yxs_w = yxs.assign(w_pool=ps.lag_spatial(w_pool, yxs[<span class="hljs-string">&apos;pool&apos;</span>].values))
+</code></pre>
+<p>And now we can run the model, which has the same setup as <code>m1</code>, with the exception that it includes the number of AirBnb properties with pools surrounding each house:</p>
+<pre><code class="lang-python">m2 = ps.spreg.OLS(y.values[:, <span class="hljs-keyword">None</span>], \
+                  yxs_w.drop(<span class="hljs-string">&apos;price&apos;</span>, axis=<span class="hljs-number">1</span>).values, \
+                  w=w, spat_diag=<span class="hljs-keyword">True</span>, \
+                  name_x=yxs_w.drop(<span class="hljs-string">&apos;price&apos;</span>, axis=<span class="hljs-number">1</span>).columns.tolist(), name_y=<span class="hljs-string">&apos;ln(price)&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">print(m2.summary)
+</code></pre>
+<pre><code>REGRESSION
+----------
+SUMMARY OF OUTPUT: ORDINARY LEAST SQUARES
+-----------------------------------------
+Data set            :     unknown
+Weights matrix      :     unknown
+Dependent Variable  :   ln(price)                Number of Observations:        5767
+Mean dependent var  :      5.1952                Number of Variables   :           8
+S.D. dependent var  :      0.9455                Degrees of Freedom    :        5759
+R-squared           :      0.4044
+Adjusted R-squared  :      0.4037
+Sum squared residual:    3070.363                F-statistic           :    558.6139
+Sigma-square        :       0.533                Prob(F-statistic)     :           0
+S.E. of regression  :       0.730                Log likelihood        :   -6365.387
+Sigma-square ML     :       0.532                Akaike info criterion :   12746.773
+S.E of regression ML:      0.7297                Schwarz criterion     :   12800.053
+
+------------------------------------------------------------------------------------
+            Variable     Coefficient       Std.Error     t-Statistic     Probability
+------------------------------------------------------------------------------------
+            CONSTANT       4.0906444       0.0230571     177.4134022       0.0000000
+ host_listings_count      -0.0000108       0.0001790      -0.0603617       0.9518697
+           bathrooms       0.2948787       0.0194813      15.1365024       0.0000000
+            bedrooms       0.3277450       0.0159679      20.5252404       0.0000000
+                beds       0.0246650       0.0097377       2.5329419       0.0113373
+     guests_included       0.0076894       0.0060564       1.2696250       0.2042695
+                pool       0.0725756       0.0257356       2.8200486       0.0048181
+              w_pool       0.0188875       0.0151729       1.2448141       0.2132508
+------------------------------------------------------------------------------------
+
+REGRESSION DIAGNOSTICS
+MULTICOLLINEARITY CONDITION NUMBER            9.605
+
+TEST ON NORMALITY OF ERRORS
+TEST                             DF        VALUE           PROB
+Jarque-Bera                       2     1368880.320           0.0000
+
+DIAGNOSTICS FOR HETEROSKEDASTICITY
+RANDOM COEFFICIENTS
+TEST                             DF        VALUE           PROB
+Breusch-Pagan test                7        1565.566           0.0000
+Koenker-Bassett test              7          40.537           0.0000
+
+DIAGNOSTICS FOR SPATIAL DEPENDENCE
+TEST                           MI/DF       VALUE           PROB
+Lagrange Multiplier (lag)         1         255.124           0.0000
+Robust LM (lag)                   1          13.448           0.0002
+Lagrange Multiplier (error)       1         276.862           0.0000
+Robust LM (error)                 1          35.187           0.0000
+Lagrange Multiplier (SARMA)       2         290.310           0.0000
+
+================================ END OF REPORT =====================================
+</code></pre><p>Results are largely consistent with the original model. Also, incidentally, the number of pools surrounding a property does not appear to have any significant effect on the price of a given property. This could be for a host of reasons: maybe AirBnb customers do not value the number of pools surrounding a property where they are looking to stay; but maybe they do but our dataset only allows us to capture the number of pools in <em>other</em> AirBnb properties, which is not necessarily a good proxy of the number of pools in the immediate surroundings of a given property.</p>
+<h2 id="spatially-lagged-endogenous-regressors-wy">Spatially lagged endogenous regressors (<code>WY</code>)</h2>
+<p>In a similar way to how we have included the spatial lag, one could think the prices of houses surrounding a given property also enter its own price function. In math terms, this implies the following:</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>ln</mi><mo>(</mo><msub><mi>P</mi><mi>i</mi></msub><mo>)</mo><mo>=</mo><mi>&#x3B1;</mi><mo>+</mo><mi>&#x3BB;</mi><msub><mo>&#x2211;</mo><mi>j</mi></msub><msub><mi>w</mi><mrow><mi>i</mi><mi>j</mi></mrow></msub><mi>ln</mi><mo>(</mo><msub><mi>P</mi><mi>i</mi></msub><mo>)</mo><mo>+</mo><mi>&#x3B2;</mi><msub><mi>X</mi><mi>i</mi></msub><mo>+</mo><msub><mi>&#x3F5;</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">
+\ln(P_i) = \alpha + \lambda \sum_j w_{ij} \ln(P_i) + \beta X_i + \epsilon_i
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:1.050005em;"></span><span class="strut bottom" style="height:2.463782em;vertical-align:-1.413777em;"></span><span class="base displaystyle textstyle uncramped"><span class="mop">ln</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose">)</span><span class="mrel">=</span><span class="mord mathit" style="margin-right:0.0037em;">&#x3B1;</span><span class="mbin">+</span><span class="mord mathit">&#x3BB;</span><span class="mop op-limits"><span class="vlist"><span style="top:1.177669em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span><span style="top:-0.000005000000000032756em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span><span class="op-symbol large-op mop">&#x2211;</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mord"><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.02691em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord scriptstyle cramped"><span class="mord mathit">i</span><span class="mord mathit" style="margin-right:0.05724em;">j</span></span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mop">ln</span><span class="mopen">(</span><span class="mord"><span class="mord mathit" style="margin-right:0.13889em;">P</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.13889em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mclose">)</span><span class="mbin">+</span><span class="mord mathit" style="margin-right:0.05278em;">&#x3B2;</span><span class="mord"><span class="mord mathit" style="margin-right:0.07847em;">X</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:-0.07847em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span><span class="mbin">+</span><span class="mord"><span class="mord mathit">&#x3F5;</span><span class="vlist"><span style="top:0.15em;margin-right:0.05em;margin-left:0em;"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span><span class="reset-textstyle scriptstyle cramped"><span class="mord mathit">i</span></span></span><span class="baseline-fix"><span class="fontsize-ensurer reset-size5 size5"><span style="font-size:0em;">&#x200B;</span></span>&#x200B;</span></span></span></span></span></span></span></p>
+<p>This is essentially what we call a <em>spatial lag</em> model in spatial econometrics. Two calls for caution:</p>
+<ol>
+<li>Unlike before, this specification <em>does</em> violate some of the assumptions on which OLS relies. In particular, it is including an endogenous variable on the right-hand side. This means we need a new estimation method to obtain reliable coefficients. The technical details of this go well beyond the scope of this workshop (although, if you are interested, go check <a href="https://geodacenter.asu.edu/category/access/public/spatial-regress" target="_blank">Anselin &amp; Rey, 2015</a>). But we can offload those to <code>PySAL</code> and use the <code>GM_Lag</code> class, which implements the state-of-the-art approach to estimate this model.</li>
+<li>A more conceptual <em>gotcha</em>: you might be tempted to read the equation above as the effect of the price in neighboring locations $j$ on that of location $i$. This is not exactly the exact interpretation. Instead, we need to realize this is all assumed to be a &quot;joint decission&quot;: rather than some houses setting their price first and that having a subsequent effect on others, what the equation models is an interdependent process by which each owner sets her own price <em>taking into account</em> the price that will be set in neighboring locations. This might read a bit like a technical subtlety and, to some extent, it is; but it is important to keep it in mind when you are interpreting the results.</li>
+</ol>
+<p>Let us see how you would run this using <code>PySAL</code>:</p>
+<pre><code class="lang-python">m3 = ps.spreg.GM_Lag(y.values[:, <span class="hljs-keyword">None</span>], yxs.drop(<span class="hljs-string">&apos;price&apos;</span>, axis=<span class="hljs-number">1</span>).values, \
+                  w=w, spat_diag=<span class="hljs-keyword">True</span>, \
+                  name_x=yxs.drop(<span class="hljs-string">&apos;price&apos;</span>, axis=<span class="hljs-number">1</span>).columns.tolist(), name_y=<span class="hljs-string">&apos;ln(price)&apos;</span>)
+</code></pre>
+<pre><code class="lang-python">print(m3.summary)
+</code></pre>
+<pre><code>REGRESSION
+----------
+SUMMARY OF OUTPUT: SPATIAL TWO STAGE LEAST SQUARES
+--------------------------------------------------
+Data set            :     unknown
+Weights matrix      :     unknown
+Dependent Variable  :   ln(price)                Number of Observations:        5767
+Mean dependent var  :      5.1952                Number of Variables   :           8
+S.D. dependent var  :      0.9455                Degrees of Freedom    :        5759
+Pseudo R-squared    :      0.4224
+Spatial Pseudo R-squared:  0.4056
+
+------------------------------------------------------------------------------------
+            Variable     Coefficient       Std.Error     z-Statistic     Probability
+------------------------------------------------------------------------------------
+            CONSTANT       3.7085715       0.1075621      34.4784213       0.0000000
+ host_listings_count      -0.0000587       0.0001765      -0.3324585       0.7395430
+           bathrooms       0.2857932       0.0193237      14.7897969       0.0000000
+            bedrooms       0.3272598       0.0157132      20.8270544       0.0000000
+                beds       0.0239548       0.0095848       2.4992528       0.0124455
+     guests_included       0.0065147       0.0059651       1.0921407       0.2747713
+                pool       0.0891100       0.0218383       4.0804521       0.0000449
+         W_ln(price)       0.0785059       0.0212424       3.6957202       0.0002193
+------------------------------------------------------------------------------------
+Instrumented: W_ln(price)
+Instruments: W_bathrooms, W_bedrooms, W_beds, W_guests_included,
+             W_host_listings_count, W_pool
+
+DIAGNOSTICS FOR SPATIAL DEPENDENCE
+TEST                           MI/DF       VALUE           PROB
+Anselin-Kelejian Test             1          31.545          0.0000
+================================ END OF REPORT =====================================
+</code></pre><p>As we can see, results are again very similar in all the other variable. It is also very clear that the estimate of the spatial lag of price is statistically significant. This points to evidence that there are processes of spatial interaction between property owners when they set their price.</p>
+<h2 id="prediction-performance-of-spatial-models">Prediction performance of spatial models</h2>
+<p>Even if we are not interested in the interpretation of the model to learn more about how alternative factors determine the price of an AirBnb property, spatial econometrics can be useful. In a purely predictive setting, the use of explicitly spatial models is likely to improve accuracy in cases where space plays a key role in the data generating process. To have a quick look at this issue, we can use the mean squared error (MSE), a standard metric of accuracy in the machine learning literature, to evaluate whether explicitly spatial models are better than traditional, non-spatial ones:</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sklearn.metrics <span class="hljs-keyword">import</span> mean_squared_error <span class="hljs-keyword">as</span> mse
+
+mses = pd.Series({<span class="hljs-string">&apos;OLS&apos;</span>: mse(y, m1.predy.flatten()), \
+                     <span class="hljs-string">&apos;OLS+W&apos;</span>: mse(y, m2.predy.flatten()), \
+                     <span class="hljs-string">&apos;Lag&apos;</span>: mse(y, m3.predy_e)
+                    })
+mses.sort_values()
+</code></pre>
+<pre><code>Lag      0.531327
+OLS+W    0.532402
+OLS      0.532545
+dtype: float64
+</code></pre><p>We can see that the inclusion of the number of surrounding pools (which was insignificant) only marginally reduces the MSE. The inclusion of the spatial lag of price, however, does a better job at improving the accuracy of the model.</p>
+<h2 id="exercise">Exercise</h2>
+<blockquote>
+<p><em>Run a regression including both the spatial lag of pools and of the price. How does its predictive performance compare?</em></p>
+</blockquote>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="07_spatial_clustering.html" class="navigation navigation-prev " aria-label="Previous page: Spatial clustering">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../content/infrastructure/workflow.html" class="navigation navigation-next " aria-label="Next page: Development notes">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Spatial Regression","level":"1.8.3","depth":2,"next":{"title":"Development notes","level":"1.9","depth":1,"path":"content/infrastructure/workflow.md","ref":"content/infrastructure/workflow.md","articles":[]},"previous":{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/07_spatial_clustering.md","ref":"ipynb_md/07_spatial_clustering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/08_spatial_regression.md","mtime":"2016-06-25T00:42:23.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-25T11:14:31.398Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.1.0">
+        <meta name="generator" content="GitBook 3.1.1">
         
         
         
@@ -185,9 +185,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../part1/01_intro.html">
+        <li class="chapter " data-level="1.7.1" data-path="../part1/00_intro.html">
             
-                <a href="../part1/01_intro.html">
+                <a href="../part1/00_intro.html">
             
                     
                     Software and Tools Installation
@@ -198,9 +198,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.2" data-path="../../ipynb_md/02_data_processing.html">
+        <li class="chapter " data-level="1.7.2" data-path="../../ipynb_md/01_data_processing.html">
             
-                <a href="../../ipynb_md/02_data_processing.html">
+                <a href="../../ipynb_md/01_data_processing.html">
             
                     
                     Spatial data processing with PySAL
@@ -211,12 +211,51 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="../../ipynb_md/03_esda.html">
+        <li class="chapter " data-level="1.7.3" data-path="../../ipynb_md/02_geovisualization.html">
             
-                <a href="../../ipynb_md/03_esda.html">
+                <a href="../../ipynb_md/02_geovisualization.html">
+            
+                    
+                    Geovisualization
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.4" data-path="../../ipynb_md/03_spatial_weights.html">
+            
+                <a href="../../ipynb_md/03_spatial_weights.html">
+            
+                    
+                    Spatial weights in PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.5" data-path="../../ipynb_md/04_esda.html">
+            
+                <a href="../../ipynb_md/04_esda.html">
             
                     
                     ESDA with PySAL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.6" data-path="../../ipynb_md/05_spatial_dynamics.html">
+            
+                <a href="../../ipynb_md/05_spatial_dynamics.html">
+            
+                    
+                    Space-time analysis
             
                 </a>
             
@@ -243,9 +282,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.8.1" data-path="../../ipynb_md/04_points.html">
+        <li class="chapter " data-level="1.8.1" data-path="../../ipynb_md/06_points.html">
             
-                <a href="../../ipynb_md/04_points.html">
+                <a href="../../ipynb_md/06_points.html">
             
                     
                     Points
@@ -256,9 +295,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="../../ipynb_md/05_spatial_clustering.html">
+        <li class="chapter " data-level="1.8.2" data-path="../../ipynb_md/07_spatial_clustering.html">
             
-                <a href="../../ipynb_md/05_spatial_clustering.html">
+                <a href="../../ipynb_md/07_spatial_clustering.html">
             
                     
                     Spatial clustering
@@ -269,9 +308,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.3" data-path="../../ipynb_md/06_spatial_regression.html">
+        <li class="chapter " data-level="1.8.3" data-path="../../ipynb_md/08_spatial_regression.html">
             
-                <a href="../../ipynb_md/06_spatial_regression.html">
+                <a href="../../ipynb_md/08_spatial_regression.html">
             
                     
                     Spatial Regression
@@ -347,13 +386,17 @@
                                 
                                 <h1 id="data">Data</h1>
 <p>This tutorial makes use of a variety of data sources. Below is a brief description of each dataset as well as the links to the original source where the data was downloaded from. For convenience, we have repackaged the data and included them in the compressed file with the notebooks. You can download it <a href="../gds_scipy2016.zip">here</a>.</p>
+<h2 id="texas-counties">Texas counties</h2>
+<p>This includes Texas counties from the Census Bureau and a list of attached
+socio-economic variables. This is an extract of the national cover dataset
+<code>NAT</code> that is part of the example datasets shipped with <code>PySAL</code>.</p>
 <h2 id="airbnb-listing-for-austin-tx">AirBnb listing for Austin (TX)</h2>
-<p>This dataset contains information for <a href="https://www.airbnb.com/" _target="blank">AirBnb</a> properties for the area of Austin (TX). It is originally provided by <a href="http://insideairbnb.com/" _target="blank">Inside AirBnb</a>. Same as the source, the dataset is released under a <a href="http://creativecommons.org/publicdomain/zero/1.0/" _target="blank">CC0 1.0 Universal License</a>. You can see a summary of the dataset <a href="http://insideairbnb.com/austin/index.html" _target="blank">here</a>.</p>
-<p><strong>Source</strong>: <a href="http://insideairbnb.com/get-the-data.html" _target="blank">Inside AirBnb</a>&#x2019;s extract of AirBnb locations in Austin (TX).</p>
+<p>This dataset contains information for <a href="https://www.airbnb.com/" target="_blank">AirBnb</a> properties for the area of Austin (TX). It is originally provided by <a href="http://insideairbnb.com/" target="_blank">Inside AirBnb</a>. Same as the source, the dataset is released under a <a href="http://creativecommons.org/publicdomain/zero/1.0/" target="_blank">CC0 1.0 Universal License</a>. You can see a summary of the dataset <a href="http://insideairbnb.com/austin/index.html" target="_blank">here</a>.</p>
+<p><strong>Source</strong>: <a href="http://insideairbnb.com/get-the-data.html" target="_blank">Inside AirBnb</a>&#x2019;s extract of AirBnb locations in Austin (TX).</p>
 <p><strong>Path</strong>: <code>data/listings.csv.gz</code></p>
 <h2 id="austin-zipcodes">Austin Zipcodes</h2>
 <p>Boundaries for Zipcodes in Austin. The original source is provided by the City of Austin GIS Division.</p>
-<p><strong>Source</strong>: open data from the city of Austin <a href="https://data.austintexas.gov/Geodata/Zipcodes/23x8-agw7" _target="blank">[url]</a></p>
+<p><strong>Source</strong>: open data from the city of Austin <a href="https://data.austintexas.gov/Geodata/Zipcodes/23x8-agw7" target="_blank">[url]</a></p>
 <p><strong>Path</strong>: <code>data/Zipcodes.geojson</code></p>
 
                                 
@@ -398,7 +441,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Data","level":"1.6","depth":1,"next":{"title":"Part I","level":"1.7","depth":1,"path":"content/part1/README.md","ref":"content/part1/README.md","articles":[{"title":"Software and Tools Installation","level":"1.7.1","depth":2,"path":"content/part1/01_intro.md","ref":"content/part1/01_intro.md","articles":[]},{"title":"Spatial data processing with PySAL","level":"1.7.2","depth":2,"path":"ipynb_md/02_data_processing.md","ref":"ipynb_md/02_data_processing.md","articles":[]},{"title":"ESDA with PySAL","level":"1.7.3","depth":2,"path":"ipynb_md/03_esda.md","ref":"ipynb_md/03_esda.md","articles":[]}]},"previous":{"title":"Outline","level":"1.5","depth":1,"path":"content/outline.md","ref":"content/outline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"content/data/README.md","mtime":"2016-06-19T19:45:26.590Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-19T19:55:21.120Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Data","level":"1.6","depth":1,"next":{"title":"Part I","level":"1.7","depth":1,"path":"content/part1/README.md","ref":"content/part1/README.md","articles":[{"title":"Software and Tools Installation","level":"1.7.1","depth":2,"path":"content/part1/00_intro.md","ref":"content/part1/00_intro.md","articles":[]},{"title":"Spatial data processing with PySAL","level":"1.7.2","depth":2,"path":"ipynb_md/01_data_processing.md","ref":"ipynb_md/01_data_processing.md","articles":[]},{"title":"Geovisualization","level":"1.7.3","depth":2,"path":"ipynb_md/02_geovisualization.md","ref":"ipynb_md/02_geovisualization.md","articles":[]},{"title":"Spatial weights in PySAL","level":"1.7.4","depth":2,"path":"ipynb_md/03_spatial_weights.md","ref":"ipynb_md/03_spatial_weights.md","articles":[]},{"title":"ESDA with PySAL","level":"1.7.5","depth":2,"path":"ipynb_md/04_esda.md","ref":"ipynb_md/04_esda.md","articles":[]},{"title":"Space-time analysis","level":"1.7.6","depth":2,"path":"ipynb_md/05_spatial_dynamics.md","ref":"ipynb_md/05_spatial_dynamics.md","articles":[]}]},"previous":{"title":"Outline","level":"1.5","depth":1,"path":"content/outline.md","ref":"content/outline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"content/data/README.md","mtime":"2016-06-25T00:39:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-25T11:14:31.398Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -406,6 +449,10 @@
         
     <script src="../../gitbook/gitbook.js"></script>
     <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
     
         
         <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
