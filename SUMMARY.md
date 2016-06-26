@@ -19,4 +19,5 @@
     * [Points](ipynb_md/06_points.md)
     * [Spatial clustering](ipynb_md/07_spatial_clustering.md)
     * [Spatial Regression](ipynb_md/08_spatial_regression.md)
+
 * [Development notes](content/infrastructure/workflow.md)
