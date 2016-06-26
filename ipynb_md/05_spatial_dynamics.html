@@ -185,20 +185,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../content/part1/00_intro.html">
-            
-                <a href="../content/part1/00_intro.html">
-            
-                    
-                    Software and Tools Installation
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.7.2" data-path="01_data_processing.html">
+        <li class="chapter " data-level="1.7.1" data-path="01_data_processing.html">
             
                 <a href="01_data_processing.html">
             
@@ -211,7 +198,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.3" data-path="02_geovisualization.html">
+        <li class="chapter " data-level="1.7.2" data-path="02_geovisualization.html">
             
                 <a href="02_geovisualization.html">
             
@@ -224,7 +211,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.4" data-path="03_spatial_weights.html">
+        <li class="chapter " data-level="1.7.3" data-path="03_spatial_weights.html">
             
                 <a href="03_spatial_weights.html">
             
@@ -237,7 +224,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7.5" data-path="04_esda.html">
+        <li class="chapter " data-level="1.7.4" data-path="04_esda.html">
             
                 <a href="04_esda.html">
             
@@ -250,7 +237,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.7.6" data-path="05_spatial_dynamics.html">
+        <li class="chapter active" data-level="1.7.5" data-path="05_spatial_dynamics.html">
             
                 <a href="05_spatial_dynamics.html">
             
@@ -397,7 +384,7 @@
 <pre><code class="lang-python">f = ps.open(ps.examples.get_path(<span class="hljs-string">&apos;usjoin.csv&apos;</span>), <span class="hljs-string">&apos;r&apos;</span>)
 </code></pre>
 <p>To determine what is in the file, check the <code>header</code> attribute on the file object:</p>
-<pre><code class="lang-python">f.header
+<pre><code class="lang-python">f.header[<span class="hljs-number">0</span>:<span class="hljs-number">10</span>]
 </code></pre>
 <pre><code>[&apos;Name&apos;,
  &apos;STATE_FIPS&apos;,
@@ -408,80 +395,7 @@
  &apos;1933&apos;,
  &apos;1934&apos;,
  &apos;1935&apos;,
- &apos;1936&apos;,
- &apos;1937&apos;,
- &apos;1938&apos;,
- &apos;1939&apos;,
- &apos;1940&apos;,
- &apos;1941&apos;,
- &apos;1942&apos;,
- &apos;1943&apos;,
- &apos;1944&apos;,
- &apos;1945&apos;,
- &apos;1946&apos;,
- &apos;1947&apos;,
- &apos;1948&apos;,
- &apos;1949&apos;,
- &apos;1950&apos;,
- &apos;1951&apos;,
- &apos;1952&apos;,
- &apos;1953&apos;,
- &apos;1954&apos;,
- &apos;1955&apos;,
- &apos;1956&apos;,
- &apos;1957&apos;,
- &apos;1958&apos;,
- &apos;1959&apos;,
- &apos;1960&apos;,
- &apos;1961&apos;,
- &apos;1962&apos;,
- &apos;1963&apos;,
- &apos;1964&apos;,
- &apos;1965&apos;,
- &apos;1966&apos;,
- &apos;1967&apos;,
- &apos;1968&apos;,
- &apos;1969&apos;,
- &apos;1970&apos;,
- &apos;1971&apos;,
- &apos;1972&apos;,
- &apos;1973&apos;,
- &apos;1974&apos;,
- &apos;1975&apos;,
- &apos;1976&apos;,
- &apos;1977&apos;,
- &apos;1978&apos;,
- &apos;1979&apos;,
- &apos;1980&apos;,
- &apos;1981&apos;,
- &apos;1982&apos;,
- &apos;1983&apos;,
- &apos;1984&apos;,
- &apos;1985&apos;,
- &apos;1986&apos;,
- &apos;1987&apos;,
- &apos;1988&apos;,
- &apos;1989&apos;,
- &apos;1990&apos;,
- &apos;1991&apos;,
- &apos;1992&apos;,
- &apos;1993&apos;,
- &apos;1994&apos;,
- &apos;1995&apos;,
- &apos;1996&apos;,
- &apos;1997&apos;,
- &apos;1998&apos;,
- &apos;1999&apos;,
- &apos;2000&apos;,
- &apos;2001&apos;,
- &apos;2002&apos;,
- &apos;2003&apos;,
- &apos;2004&apos;,
- &apos;2005&apos;,
- &apos;2006&apos;,
- &apos;2007&apos;,
- &apos;2008&apos;,
- &apos;2009&apos;]
+ &apos;1936&apos;]
 </code></pre><p>Ok, lets pull in the <code>name</code> variable to see what we have.</p>
 <pre><code class="lang-python">name = f.by_col(<span class="hljs-string">&apos;Name&apos;</span>)
 </code></pre>
@@ -538,109 +452,15 @@
 </code></pre><p>Now obtain per capital incomes in 1929 which is in the column associated with <code>1929</code>.</p>
 <pre><code class="lang-python">y1929 = f.by_col(<span class="hljs-string">&apos;1929&apos;</span>)
 </code></pre>
-<pre><code class="lang-python">y1929
+<pre><code class="lang-python">y1929[:<span class="hljs-number">10</span>]
 </code></pre>
-<pre><code>[323,
- 600,
- 310,
- 991,
- 634,
- 1024,
- 1032,
- 518,
- 347,
- 507,
- 948,
- 607,
- 581,
- 532,
- 393,
- 414,
- 601,
- 768,
- 906,
- 790,
- 599,
- 286,
- 621,
- 592,
- 596,
- 868,
- 686,
- 918,
- 410,
- 1152,
- 332,
- 382,
- 771,
- 455,
- 668,
- 772,
- 874,
- 271,
- 426,
- 378,
- 479,
- 551,
- 634,
- 434,
- 741,
- 460,
- 673,
- 675]
+<pre><code>[323, 600, 310, 991, 634, 1024, 1032, 518, 347, 507]
 </code></pre><p>And now 2009</p>
 <pre><code class="lang-python">y2009 = f.by_col(<span class="hljs-string">&quot;2009&quot;</span>)
 </code></pre>
-<pre><code class="lang-python">y2009
+<pre><code class="lang-python">y2009[:<span class="hljs-number">10</span>]
 </code></pre>
-<pre><code>[32274,
- 32077,
- 31493,
- 40902,
- 40093,
- 52736,
- 40135,
- 36565,
- 33086,
- 30987,
- 40933,
- 33174,
- 35983,
- 37036,
- 31250,
- 35151,
- 35268,
- 47159,
- 49590,
- 34280,
- 40920,
- 29318,
- 35106,
- 32699,
- 37057,
- 38009,
- 41882,
- 48123,
- 32197,
- 46844,
- 33564,
- 38672,
- 35018,
- 33708,
- 35210,
- 38827,
- 41283,
- 30835,
- 36499,
- 33512,
- 35674,
- 30107,
- 36752,
- 43211,
- 40619,
- 31843,
- 35676,
- 42504]
+<pre><code>[32274, 32077, 31493, 40902, 40093, 52736, 40135, 36565, 33086, 30987]
 </code></pre><p>These are read into regular Python lists which are not particularly well suited to efficient data analysis. So let&apos;s convert them to numpy arrays.</p>
 <pre><code class="lang-python">y2009 = np.array(y2009)
 </code></pre>
@@ -667,13 +487,13 @@
 </code></pre>
 <pre><code class="lang-python">plt.plot(years,Y[<span class="hljs-number">0</span>])
 </code></pre>
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fc12c98b7b8&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x110ba1a58&gt;]
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_23_1.png" alt="png"></p>
 <pre><code class="lang-python">RY = Y / Y.mean(axis=<span class="hljs-number">0</span>)
 </code></pre>
 <pre><code class="lang-python">plt.plot(years,RY[<span class="hljs-number">0</span>])
 </code></pre>
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fc12c8f0c18&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x113575e10&gt;]
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_25_1.png" alt="png"></p>
 <pre><code class="lang-python">name = np.array(name)
 </code></pre>
@@ -684,7 +504,7 @@
 plt.plot(years, RY[<span class="hljs-number">0</span>], label=<span class="hljs-string">&apos;Alabama&apos;</span>)
 plt.legend()
 </code></pre>
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fc12ad18518&gt;
+<pre><code>&lt;matplotlib.legend.Legend at 0x1137d9eb8&gt;
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_28_1.png" alt="png"></p>
 <h2 id="spaghetti-plot">Spaghetti Plot</h2>
 <pre><code class="lang-python"><span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> RY:
@@ -712,7 +532,7 @@ x = np.linspace(minY0, maxY0, <span class="hljs-number">100</span>)
 </code></pre>
 <pre><code class="lang-python">plt.plot(x,density(x))
 </code></pre>
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fc12c86a2e8&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x113d2a748&gt;]
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_37_1.png" alt="png"></p>
 <pre><code class="lang-python">d2009 = gaussian_kde(Y[:,<span class="hljs-number">-1</span>])
 </code></pre>
@@ -722,7 +542,7 @@ x = np.linspace(minY0, maxY0, <span class="hljs-number">100</span>)
 </code></pre>
 <pre><code class="lang-python">plt.plot(x,d2009(x))
 </code></pre>
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fc12c9115f8&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x113a48358&gt;]
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_40_1.png" alt="png"></p>
 <pre><code class="lang-python">minR0 = RY.min()
 </code></pre>
@@ -737,13 +557,13 @@ x = np.linspace(minY0, maxY0, <span class="hljs-number">100</span>)
 <pre><code class="lang-python">plt.plot(x, d1929(x))
 plt.plot(x, d2009(x))
 </code></pre>
-<pre><code>[&lt;matplotlib.lines.Line2D at 0x7fc12c8aabe0&gt;]
+<pre><code>[&lt;matplotlib.lines.Line2D at 0x113d035c0&gt;]
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_46_1.png" alt="png"></p>
 <pre><code class="lang-python">plt.plot(x, d1929(x), label=<span class="hljs-string">&apos;1929&apos;</span>)
 plt.plot(x, d2009(x), label=<span class="hljs-string">&apos;2009&apos;</span>)
 plt.legend()
 </code></pre>
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fc12c72b240&gt;
+<pre><code>&lt;matplotlib.legend.Legend at 0x113a4a908&gt;
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_47_1.png" alt="png"></p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
 <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">2010</span><span class="hljs-number">-1929</span>):
@@ -752,14 +572,14 @@ plt.legend()
 <span class="hljs-comment">#sns.kdeplot(data.HR70)</span>
 <span class="hljs-comment">#sns.kdeplot(data.HR60)</span>
 </code></pre>
-<pre><code>/home/serge/anaconda2/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+<pre><code>/Users/dani/anaconda/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
   y = X[:m/2+1] + np.r_[0,X[m/2+1:],0]*1j
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_48_1.png" alt="png"></p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> seaborn <span class="hljs-keyword">as</span> sns
 <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">2010</span><span class="hljs-number">-1929</span>):
     sns.kdeplot(RY[:,y])
 </code></pre>
-<pre><code>/home/serge/anaconda2/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+<pre><code>/Users/dani/anaconda/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
   y = X[:m/2+1] + np.r_[0,X[m/2+1:],0]*1j
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_49_1.png" alt="png"></p>
 <pre><code class="lang-python"><span class="hljs-keyword">for</span> cs <span class="hljs-keyword">in</span> RY.T: <span class="hljs-comment"># take cross sections</span>
@@ -775,7 +595,7 @@ plt.ylabel(<span class="hljs-string">&apos;s&apos;</span>)
 plt.xlabel(<span class="hljs-string">&apos;year&apos;</span>)
 plt.title(<span class="hljs-string">&quot;Sigma-Convergence&quot;</span>)
 </code></pre>
-<pre><code>&lt;matplotlib.text.Text at 0x7fc129c01358&gt;
+<pre><code>&lt;matplotlib.text.Text at 0x11439c470&gt;
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_52_1.png" alt="png"></p>
 <p>So the distribution is becoming less dispersed over time.</p>
 <p>But what about internal mixing? Do poor (rich) states remain poor (rich), or is there movement within the distribuiton over time?</p>
@@ -887,7 +707,7 @@ pci.shape
 <pre><code>(48, 81)
 </code></pre><pre><code class="lang-python">cnames = f.by_col(<span class="hljs-string">&apos;Name&apos;</span>)
 </code></pre>
-<pre><code class="lang-python">cnames
+<pre><code class="lang-python">cnames[:<span class="hljs-number">10</span>]
 </code></pre>
 <pre><code>[&apos;Alabama&apos;,
  &apos;Arizona&apos;,
@@ -898,97 +718,12 @@ pci.shape
  &apos;Delaware&apos;,
  &apos;Florida&apos;,
  &apos;Georgia&apos;,
- &apos;Idaho&apos;,
- &apos;Illinois&apos;,
- &apos;Indiana&apos;,
- &apos;Iowa&apos;,
- &apos;Kansas&apos;,
- &apos;Kentucky&apos;,
- &apos;Louisiana&apos;,
- &apos;Maine&apos;,
- &apos;Maryland&apos;,
- &apos;Massachusetts&apos;,
- &apos;Michigan&apos;,
- &apos;Minnesota&apos;,
- &apos;Mississippi&apos;,
- &apos;Missouri&apos;,
- &apos;Montana&apos;,
- &apos;Nebraska&apos;,
- &apos;Nevada&apos;,
- &apos;New Hampshire&apos;,
- &apos;New Jersey&apos;,
- &apos;New Mexico&apos;,
- &apos;New York&apos;,
- &apos;North Carolina&apos;,
- &apos;North Dakota&apos;,
- &apos;Ohio&apos;,
- &apos;Oklahoma&apos;,
- &apos;Oregon&apos;,
- &apos;Pennsylvania&apos;,
- &apos;Rhode Island&apos;,
- &apos;South Carolina&apos;,
- &apos;South Dakota&apos;,
- &apos;Tennessee&apos;,
- &apos;Texas&apos;,
- &apos;Utah&apos;,
- &apos;Vermont&apos;,
- &apos;Virginia&apos;,
- &apos;Washington&apos;,
- &apos;West Virginia&apos;,
- &apos;Wisconsin&apos;,
- &apos;Wyoming&apos;]
+ &apos;Idaho&apos;]
 </code></pre><pre><code class="lang-python">ids = [ cnames.index(name) <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> data.STATE_NAME]
 </code></pre>
-<pre><code class="lang-python">ids
+<pre><code class="lang-python">ids[:<span class="hljs-number">10</span>]
 </code></pre>
-<pre><code>[44,
- 23,
- 16,
- 31,
- 38,
- 47,
- 46,
- 9,
- 42,
- 20,
- 34,
- 26,
- 12,
- 18,
- 24,
- 29,
- 35,
- 5,
- 36,
- 27,
- 11,
- 25,
- 41,
- 3,
- 32,
- 10,
- 6,
- 45,
- 17,
- 4,
- 14,
- 13,
- 43,
- 22,
- 1,
- 33,
- 30,
- 39,
- 40,
- 28,
- 0,
- 21,
- 8,
- 37,
- 2,
- 15,
- 7,
- 19]
+<pre><code>[44, 23, 16, 31, 38, 47, 46, 9, 42, 20]
 </code></pre><pre><code class="lang-python">pci = pci[ids]
 RY = RY[ids]
 </code></pre>
@@ -1018,97 +753,16 @@ plt.title(<span class="hljs-string">&apos;Per Capita Income 2009 Quintiles&apos;
 plt.show()
 </code></pre>
 <p><img src="05_spatial_dynamics_files/05_spatial_dynamics_74_0.png" alt="png"></p>
-<pre><code class="lang-python"><span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> range(<span class="hljs-number">2010</span><span class="hljs-number">-1929</span>):
-    pciy = ps.Quantiles(pci[:,y], k=<span class="hljs-number">5</span>)
-    f, ax = plt.subplots(<span class="hljs-number">1</span>, figsize=(<span class="hljs-number">10</span>, <span class="hljs-number">5</span>))
-    tx.assign(cl=pciy.yb+<span class="hljs-number">1</span>).plot(column=<span class="hljs-string">&apos;cl&apos;</span>, categorical=<span class="hljs-keyword">True</span>, \
-            k=<span class="hljs-number">5</span>, cmap=<span class="hljs-string">&apos;Greens&apos;</span>, linewidth=<span class="hljs-number">0.1</span>, ax=ax, \
-            edgecolor=<span class="hljs-string">&apos;grey&apos;</span>, legend=<span class="hljs-keyword">True</span>)
+<h2 id="convert-to-a-code-cell-to-generate-a-time-series-of-the-maps">convert to a code cell to generate a time series of the maps</h2>
+<p>for y in range(2010-1929):
+    pciy = ps.Quantiles(pci[:,y], k=5)
+    f, ax = plt.subplots(1, figsize=(10, 5))
+    tx.assign(cl=pciy.yb+1).plot(column=&apos;cl&apos;, categorical=True, \
+            k=5, cmap=&apos;Greens&apos;, linewidth=0.1, ax=ax, \
+            edgecolor=&apos;grey&apos;, legend=True)
     ax.set_axis_off()
-    plt.title(<span class="hljs-string">&quot;Per Capita Income %d Quintiles&quot;</span>%(<span class="hljs-number">1929</span>+y))
-    plt.show()
-</code></pre>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_0.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_1.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_2.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_3.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_4.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_5.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_6.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_7.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_8.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_9.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_10.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_11.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_12.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_13.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_14.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_15.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_16.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_17.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_18.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_19.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_20.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_21.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_22.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_23.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_24.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_25.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_26.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_27.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_28.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_29.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_30.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_31.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_32.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_33.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_34.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_35.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_36.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_37.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_38.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_39.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_40.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_41.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_42.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_43.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_44.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_45.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_46.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_47.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_48.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_49.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_50.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_51.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_52.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_53.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_54.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_55.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_56.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_57.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_58.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_59.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_60.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_61.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_62.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_63.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_64.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_65.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_66.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_67.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_68.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_69.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_70.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_71.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_72.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_73.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_74.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_75.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_76.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_77.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_78.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_79.png" alt="png"></p>
-<p><img src="05_spatial_dynamics_files/05_spatial_dynamics_75_80.png" alt="png"></p>
+    plt.title(&quot;Per Capita Income %d Quintiles&quot;%(1929+y))
+    plt.show()</p>
 <p>Put series into cross-sectional quintiles (i.e., quintiles for each year).</p>
 <pre><code class="lang-python">q5 = np.array([ps.Quantiles(y).yb <span class="hljs-keyword">for</span> y <span class="hljs-keyword">in</span> pci.T]).transpose()
 </code></pre>
@@ -1186,13 +840,13 @@ plt.plot(years, res[:,<span class="hljs-number">1</span>], label=<span class="hl
 plt.title(<span class="hljs-string">&quot;Moran&apos;s I&quot;</span>)
 plt.legend()
 </code></pre>
-<pre><code>&lt;matplotlib.legend.Legend at 0x7fc1189b5e80&gt;
+<pre><code>&lt;matplotlib.legend.Legend at 0x7f912bf8d438&gt;
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_96_1.png" alt="png"></p>
 <pre><code class="lang-python">plt.plot(years, res[:,<span class="hljs-number">-1</span>])
 plt.ylim(<span class="hljs-number">0</span>,<span class="hljs-number">7.0</span>)
 plt.title(<span class="hljs-string">&apos;z-values, I&apos;</span>)
 </code></pre>
-<pre><code>&lt;matplotlib.text.Text at 0x7fc129b46b70&gt;
+<pre><code>&lt;matplotlib.text.Text at 0x7f912beb4da0&gt;
 </code></pre><p><img src="05_spatial_dynamics_files/05_spatial_dynamics_97_1.png" alt="png"></p>
 <h2 id="spatial-markov">Spatial Markov</h2>
 <pre><code class="lang-python">pci.shape
@@ -1383,7 +1037,7 @@ P(LAG4)         C0         C1         C2         C3         C4
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Space-time analysis","level":"1.7.6","depth":2,"next":{"title":"Part II","level":"1.8","depth":1,"path":"content/part2/README.md","ref":"content/part2/README.md","articles":[{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/06_points.md","ref":"ipynb_md/06_points.md","articles":[]},{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/07_spatial_clustering.md","ref":"ipynb_md/07_spatial_clustering.md","articles":[]},{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/08_spatial_regression.md","ref":"ipynb_md/08_spatial_regression.md","articles":[]}]},"previous":{"title":"ESDA with PySAL","level":"1.7.5","depth":2,"path":"ipynb_md/04_esda.md","ref":"ipynb_md/04_esda.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/05_spatial_dynamics.md","mtime":"2016-06-25T00:42:19.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-25T11:14:31.398Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Space-time analysis","level":"1.7.5","depth":2,"next":{"title":"Part II","level":"1.8","depth":1,"path":"content/part2/README.md","ref":"content/part2/README.md","articles":[{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/06_points.md","ref":"ipynb_md/06_points.md","articles":[]},{"title":"Spatial clustering","level":"1.8.2","depth":2,"path":"ipynb_md/07_spatial_clustering.md","ref":"ipynb_md/07_spatial_clustering.md","articles":[]},{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/08_spatial_regression.md","ref":"ipynb_md/08_spatial_regression.md","articles":[]}]},"previous":{"title":"ESDA with PySAL","level":"1.7.4","depth":2,"path":"ipynb_md/04_esda.md","ref":"ipynb_md/04_esda.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/05_spatial_dynamics.md","mtime":"2016-06-26T16:07:52.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-26T16:09:58.496Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -1391,10 +1045,6 @@ P(LAG4)         C0         C1         C2         C3         C4
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
-        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
