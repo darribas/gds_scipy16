@@ -23,7 +23,7 @@ To determine what is in the file, check the `header` attribute on the file objec
 
 
 ```python
-f.header
+f.header[0:10]
 ```
 
 
@@ -38,80 +38,7 @@ f.header
      '1933',
      '1934',
      '1935',
-     '1936',
-     '1937',
-     '1938',
-     '1939',
-     '1940',
-     '1941',
-     '1942',
-     '1943',
-     '1944',
-     '1945',
-     '1946',
-     '1947',
-     '1948',
-     '1949',
-     '1950',
-     '1951',
-     '1952',
-     '1953',
-     '1954',
-     '1955',
-     '1956',
-     '1957',
-     '1958',
-     '1959',
-     '1960',
-     '1961',
-     '1962',
-     '1963',
-     '1964',
-     '1965',
-     '1966',
-     '1967',
-     '1968',
-     '1969',
-     '1970',
-     '1971',
-     '1972',
-     '1973',
-     '1974',
-     '1975',
-     '1976',
-     '1977',
-     '1978',
-     '1979',
-     '1980',
-     '1981',
-     '1982',
-     '1983',
-     '1984',
-     '1985',
-     '1986',
-     '1987',
-     '1988',
-     '1989',
-     '1990',
-     '1991',
-     '1992',
-     '1993',
-     '1994',
-     '1995',
-     '1996',
-     '1997',
-     '1998',
-     '1999',
-     '2000',
-     '2001',
-     '2002',
-     '2003',
-     '2004',
-     '2005',
-     '2006',
-     '2007',
-     '2008',
-     '2009']
+     '1936']
 
 
 
@@ -190,60 +117,13 @@ y1929 = f.by_col('1929')
 
 
 ```python
-y1929
+y1929[:10]
 ```
 
 
 
 
-    [323,
-     600,
-     310,
-     991,
-     634,
-     1024,
-     1032,
-     518,
-     347,
-     507,
-     948,
-     607,
-     581,
-     532,
-     393,
-     414,
-     601,
-     768,
-     906,
-     790,
-     599,
-     286,
-     621,
-     592,
-     596,
-     868,
-     686,
-     918,
-     410,
-     1152,
-     332,
-     382,
-     771,
-     455,
-     668,
-     772,
-     874,
-     271,
-     426,
-     378,
-     479,
-     551,
-     634,
-     434,
-     741,
-     460,
-     673,
-     675]
+    [323, 600, 310, 991, 634, 1024, 1032, 518, 347, 507]
 
 
 
@@ -256,60 +136,13 @@ y2009 = f.by_col("2009")
 
 
 ```python
-y2009
+y2009[:10]
 ```
 
 
 
 
-    [32274,
-     32077,
-     31493,
-     40902,
-     40093,
-     52736,
-     40135,
-     36565,
-     33086,
-     30987,
-     40933,
-     33174,
-     35983,
-     37036,
-     31250,
-     35151,
-     35268,
-     47159,
-     49590,
-     34280,
-     40920,
-     29318,
-     35106,
-     32699,
-     37057,
-     38009,
-     41882,
-     48123,
-     32197,
-     46844,
-     33564,
-     38672,
-     35018,
-     33708,
-     35210,
-     38827,
-     41283,
-     30835,
-     36499,
-     33512,
-     35674,
-     30107,
-     36752,
-     43211,
-     40619,
-     31843,
-     35676,
-     42504]
+    [32274, 32077, 31493, 40902, 40093, 52736, 40135, 36565, 33086, 30987]
 
 
 
@@ -381,14 +214,12 @@ years = np.arange(1929,2010)
 
 ```python
 plt.plot(years,Y[0])
-
-
 ```
 
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fc12c98b7b8>]
+    [<matplotlib.lines.Line2D at 0x110ba1a58>]
 
 
 
@@ -409,7 +240,7 @@ plt.plot(years,RY[0])
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fc12c8f0c18>]
+    [<matplotlib.lines.Line2D at 0x113575e10>]
 
 
 
@@ -444,7 +275,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7fc12ad18518>
+    <matplotlib.legend.Legend at 0x1137d9eb8>
 
 
 
@@ -513,7 +344,7 @@ plt.plot(x,density(x))
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fc12c86a2e8>]
+    [<matplotlib.lines.Line2D at 0x113d2a748>]
 
 
 
@@ -541,7 +372,7 @@ plt.plot(x,d2009(x))
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fc12c9115f8>]
+    [<matplotlib.lines.Line2D at 0x113a48358>]
 
 
 
@@ -583,7 +414,7 @@ plt.plot(x, d2009(x))
 
 
 
-    [<matplotlib.lines.Line2D at 0x7fc12c8aabe0>]
+    [<matplotlib.lines.Line2D at 0x113d035c0>]
 
 
 
@@ -601,7 +432,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7fc12c72b240>
+    <matplotlib.legend.Legend at 0x113a4a908>
 
 
 
@@ -620,7 +451,7 @@ for y in range(2010-1929):
 
 ```
 
-    /home/serge/anaconda2/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+    /Users/dani/anaconda/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
       y = X[:m/2+1] + np.r_[0,X[m/2+1:],0]*1j
 
 
@@ -635,7 +466,7 @@ for y in range(2010-1929):
     sns.kdeplot(RY[:,y])
 ```
 
-    /home/serge/anaconda2/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
+    /Users/dani/anaconda/envs/gds-scipy16/lib/python3.5/site-packages/statsmodels/nonparametric/kdetools.py:20: VisibleDeprecationWarning: using a non-integer number instead of an integer will result in an error in the future
       y = X[:m/2+1] + np.r_[0,X[m/2+1:],0]*1j
 
 
@@ -677,7 +508,7 @@ plt.title("Sigma-Convergence")
 
 
 
-    <matplotlib.text.Text at 0x7fc129c01358>
+    <matplotlib.text.Text at 0x11439c470>
 
 
 
@@ -888,7 +719,7 @@ cnames = f.by_col('Name')
 
 
 ```python
-cnames
+cnames[:10]
 ```
 
 
@@ -903,45 +734,7 @@ cnames
      'Delaware',
      'Florida',
      'Georgia',
-     'Idaho',
-     'Illinois',
-     'Indiana',
-     'Iowa',
-     'Kansas',
-     'Kentucky',
-     'Louisiana',
-     'Maine',
-     'Maryland',
-     'Massachusetts',
-     'Michigan',
-     'Minnesota',
-     'Mississippi',
-     'Missouri',
-     'Montana',
-     'Nebraska',
-     'Nevada',
-     'New Hampshire',
-     'New Jersey',
-     'New Mexico',
-     'New York',
-     'North Carolina',
-     'North Dakota',
-     'Ohio',
-     'Oklahoma',
-     'Oregon',
-     'Pennsylvania',
-     'Rhode Island',
-     'South Carolina',
-     'South Dakota',
-     'Tennessee',
-     'Texas',
-     'Utah',
-     'Vermont',
-     'Virginia',
-     'Washington',
-     'West Virginia',
-     'Wisconsin',
-     'Wyoming']
+     'Idaho']
 
 
 
@@ -952,60 +745,13 @@ ids = [ cnames.index(name) for name in data.STATE_NAME]
 
 
 ```python
-ids
+ids[:10]
 ```
 
 
 
 
-    [44,
-     23,
-     16,
-     31,
-     38,
-     47,
-     46,
-     9,
-     42,
-     20,
-     34,
-     26,
-     12,
-     18,
-     24,
-     29,
-     35,
-     5,
-     36,
-     27,
-     11,
-     25,
-     41,
-     3,
-     32,
-     10,
-     6,
-     45,
-     17,
-     4,
-     14,
-     13,
-     43,
-     22,
-     1,
-     33,
-     30,
-     39,
-     40,
-     28,
-     0,
-     21,
-     8,
-     37,
-     2,
-     15,
-     7,
-     19]
+    [44, 23, 16, 31, 38, 47, 46, 9, 42, 20]
 
 
 
@@ -1053,8 +799,7 @@ plt.show()
 ![png](05_spatial_dynamics_files/05_spatial_dynamics_74_0.png)
 
 
-
-```python
+## convert to a code cell to generate a time series of the maps
 for y in range(2010-1929):
     pciy = ps.Quantiles(pci[:,y], k=5)
     f, ax = plt.subplots(1, figsize=(10, 5))
@@ -1064,330 +809,6 @@ for y in range(2010-1929):
     ax.set_axis_off()
     plt.title("Per Capita Income %d Quintiles"%(1929+y))
     plt.show()
-```
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_0.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_1.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_2.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_3.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_4.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_5.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_6.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_7.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_8.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_9.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_10.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_11.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_12.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_13.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_14.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_15.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_16.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_17.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_18.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_19.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_20.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_21.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_22.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_23.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_24.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_25.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_26.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_27.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_28.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_29.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_30.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_31.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_32.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_33.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_34.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_35.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_36.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_37.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_38.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_39.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_40.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_41.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_42.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_43.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_44.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_45.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_46.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_47.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_48.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_49.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_50.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_51.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_52.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_53.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_54.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_55.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_56.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_57.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_58.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_59.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_60.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_61.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_62.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_63.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_64.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_65.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_66.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_67.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_68.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_69.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_70.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_71.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_72.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_73.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_74.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_75.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_76.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_77.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_78.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_79.png)
-
-
-
-![png](05_spatial_dynamics_files/05_spatial_dynamics_75_80.png)
 
 
 Put series into cross-sectional quintiles (i.e., quintiles for each year).
@@ -1575,7 +996,7 @@ plt.legend()
 
 
 
-    <matplotlib.legend.Legend at 0x7fc1189b5e80>
+    <matplotlib.legend.Legend at 0x7f912bf8d438>
 
 
 
@@ -1593,7 +1014,7 @@ plt.title('z-values, I')
 
 
 
-    <matplotlib.text.Text at 0x7fc129b46b70>
+    <matplotlib.text.Text at 0x7f912beb4da0>
 
 
 
