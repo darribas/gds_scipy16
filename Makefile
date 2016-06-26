@@ -15,7 +15,7 @@ website:
 	#gitbook epub ./ ./gds_scipy16.epub
 	#gitbook mobi ./ ./gds_scipy16.mobi
 	gitbook build
-	git add gds_scipy16.pdf gds_scipy16.epub gds_scipy16.mobi
+	git add gds_scipy16.pdf gds_scipy16.mobi
 	git commit -m "Pre website build output compilation"
 	git checkout gh-pages
 	cp -r _book/* ./
