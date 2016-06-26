@@ -2,9 +2,12 @@
 
 > [`[URL]`](http://darribas.org/gds_scipy16)
 > [`[PDF]`](./gds_scipy16.pdf)
-> [`[EPUB]`](./gds_scipy16.epub)
+> [`[EPUB]`](https://dl.dropboxusercontent.com/u/1015276/gds_scipy16.epub)
 > [`[MOBI]`](./gds_scipy16.mobi)
 > [`[IPYNB]`](./gds_scipy16.zip)
+
+**NOTE**: for downloads, if a single click does not work, try right click and
+save file.
 
 ## License
 
