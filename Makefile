@@ -11,9 +11,9 @@ notebooks:
 	rm -fr content/part2/.ipynb_checkpoints/
 	zip -r gds_scipy16.zip content
 website:
-	gitbook pdf ./ ./gds_scipy16.pdf
-	gitbook epub ./ ./gds_scipy16.epub
-	gitbook mobi ./ ./gds_scipy16.mobi
+	#gitbook pdf ./ ./gds_scipy16.pdf
+	#gitbook epub ./ ./gds_scipy16.epub
+	#gitbook mobi ./ ./gds_scipy16.mobi
 	gitbook build
 	git add gds_scipy16.pdf gds_scipy16.epub gds_scipy16.mobi
 	git commit -m "Pre website build output compilation"
