@@ -1,0 +1,25 @@
+#  conda env create environment.yml
+name: gds-scipy16
+channels:
+    - conda-forge
+dependencies:
+    - python >=3.*
+    - datashader ==0.2.0
+    - numpy
+    - matplotlib
+    - scipy
+    - pandas
+    - numexpr
+    - pysal
+    - seaborn
+    - bokeh
+    - scikit-learn
+    - jupyter
+    - statsmodels
+    - xlrd
+    - xlsxwriter
+    - geojson
+    - geopandas
+    - mplleaflet
+    - cartopy
+    - folium
