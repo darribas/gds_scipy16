@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.1.1">
+        <meta name="generator" content="GitBook 3.1.0">
         
         
         
@@ -374,7 +374,7 @@
                                 <h1 id="spatial-clustering">Spatial Clustering</h1>
 <blockquote>
 <p><a href="../content/part2/07_spatial_clustering.ipynb"><code>IPYNB</code></a></p>
-<p><strong>NOTE</strong>: much of this material has been ported and adapted from &quot;Lab 8&quot; in <a href="http://darribas.org/gds15" target="_blank">Arribas-Bel (2016)</a>.</p>
+<p><strong>NOTE</strong>: much of this material has been ported and adapted from &quot;Lab 8&quot; in <a href="http://darribas.org/gds15" _target="blank">Arribas-Bel (2016)</a>.</p>
 </blockquote>
 <p>This notebook covers a brief introduction to spatial regression. To demonstrate this, we will use a dataset of all the AirBnb listings in the city of Austin (check the Data section for more information about the dataset).</p>
 <p>Many questions and topics are complex phenomena that involve several dimensions and are hard to summarize into a single variable. In statistical terms, we call this family of problems <em>multivariate</em>, as oposed to <em>univariate</em> cases where only a single variable is considered in the analysis. Clustering tackles this kind of questions by reducing their dimensionality -the number of relevant variables the analyst needs to look at- and converting it into a more intuitive set of classes that even non-technical audiences can look at and make sense of. For this reason, it is widely use in applied contexts such as policymaking or marketing. In addition, since these methods do not require many preliminar assumptions about the structure of the data, it is a commonly used exploratory tool, as it can quickly give clues about the shape, form and content of a dataset.</p>
@@ -567,7 +567,7 @@ w = ps.queen_from_shapefile(<span class="hljs-string">&apos;tmp/tmp.shp&apos;</s
 w
 </code></pre>
 <pre><code>&lt;pysal.weights.weights.W at 0x11bd5ff98&gt;
-</code></pre><p>Now we are ready to run the regionalization algorithm. In this case we will use the <code>max-p</code> (<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9787.2011.00743.x/abstract" target="_blank">Duque, Anselin &amp; Rey, 2012)</a>, which does not require a predefined number of output regions but instead it takes a target variable that you want to make sure a minimum threshold is met. In our case, since it is based on ratings, we will impose that every resulting region has at least 10% of the total number of reviews. Let us work through what that would mean:</p>
+</code></pre><p>Now we are ready to run the regionalization algorithm. In this case we will use the <code>max-p</code> (<a href="http://onlinelibrary.wiley.com/doi/10.1111/j.1467-9787.2011.00743.x/abstract" _target="blank">Duque, Anselin &amp; Rey, 2012)</a>, which does not require a predefined number of output regions but instead it takes a target variable that you want to make sure a minimum threshold is met. In our case, since it is based on ratings, we will impose that every resulting region has at least 10% of the total number of reviews. Let us work through what that would mean:</p>
 <pre><code class="lang-python">n_rev = lst.groupby(<span class="hljs-string">&apos;zipcode&apos;</span>)\
            .sum()\
            [<span class="hljs-string">&apos;number_of_reviews&apos;</span>]\
@@ -584,7 +584,7 @@ np.random.seed(<span class="hljs-number">1234</span>)
 z = zrt.drop([<span class="hljs-string">&apos;geometry&apos;</span>, <span class="hljs-string">&apos;zipcode&apos;</span>], axis=<span class="hljs-number">1</span>).values
 maxp = ps.region.Maxp(w, z, thr, n_rev.values[:, <span class="hljs-keyword">None</span>], initial=<span class="hljs-number">1000</span>)
 </code></pre>
-<p>We can check whether the solution is better (lower within sum of squares) than we would have gotten from a purely random regionalization process using the <a href="http://pysal.readthedocs.io/en/latest/library/region/maxp.html#pysal.region.maxp.Maxp.cinference" target="_blank"><code>cinference</code></a> method:</p>
+<p>We can check whether the solution is better (lower within sum of squares) than we would have gotten from a purely random regionalization process using the <a href="http://pysal.readthedocs.io/en/latest/library/region/maxp.html#pysal.region.maxp.Maxp.cinference" _target="blank"><code>cinference</code></a> method:</p>
 <pre><code class="lang-python">%%time
 np.random.seed(<span class="hljs-number">1234</span>)
 maxp.cinference(nperm=<span class="hljs-number">999</span>)
@@ -737,7 +737,7 @@ plt.show()
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Spatial clustering","level":"1.8.2","depth":2,"next":{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/08_spatial_regression.md","ref":"ipynb_md/08_spatial_regression.md","articles":[]},"previous":{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/06_points.md","ref":"ipynb_md/06_points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/07_spatial_clustering.md","mtime":"2016-06-26T16:07:55.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-26T16:09:58.496Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Spatial clustering","level":"1.8.2","depth":2,"next":{"title":"Spatial Regression","level":"1.8.3","depth":2,"path":"ipynb_md/08_spatial_regression.md","ref":"ipynb_md/08_spatial_regression.md","articles":[]},"previous":{"title":"Points","level":"1.8.1","depth":2,"path":"ipynb_md/06_points.md","ref":"ipynb_md/06_points.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/07_spatial_clustering.md","mtime":"2016-07-04T10:11:33.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-04T10:12:51.936Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

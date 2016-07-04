@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.1.1">
+        <meta name="generator" content="GitBook 3.1.0">
         
         
         
@@ -376,7 +376,7 @@
 <p><a href="../content/part1/02_geovisualization.ipynb"><code>IPYNB</code></a></p>
 </blockquote>
 <h2 id="introduction">Introduction</h2>
-<p>When PySAL was originally planned, the intention was to focus on the computational aspects of exploratory spatial data analysis and spatial econometric methods, while relying on existing GIS packages and visualization libraries for visualization of computations. Indeed, we have partnered with <a href="https://geodacenter.asu.edu/arc_pysal" target="_blank">esri</a> and <a href="http://planet.qgis.org/planet/tag/pysal/" target="_blank">QGIS</a> towards this end.</p>
+<p>When PySAL was originally planned, the intention was to focus on the computational aspects of exploratory spatial data analysis and spatial econometric methods, while relying on existing GIS packages and visualization libraries for visualization of computations. Indeed, we have partnered with <a href="https://geodacenter.asu.edu/arc_pysal" _target="blank">esri</a> and <a href="http://planet.qgis.org/planet/tag/pysal/" _target="blank">QGIS</a> towards this end.</p>
 <p>However, over time we have received many requests for supporting basic geovisualization within PySAL so that the step of having to interoperate with an exertnal package can be avoided, thereby increasing the efficiency of the spatial analytical workflow.</p>
 <p>In this notebook, we demonstrate several approaches towards a particular subset of geovisualization methods, namely <strong>choropleth maps</strong>. We start with  a self-contained exploratory workflow where no other dependencies beyond PySAL are required. The idea here is to support quick generation of different views of your data to complement the statistical and econometric work in PySAL. Once your work has progressed to the publication stage, we point you to resources that can be used for publication quality output.</p>
 <p>We then move on to consider three other packages that can be used in conjunction with PySAL for choropleth mapping:</p>
@@ -680,12 +680,12 @@ plt.show()
 </code></pre>
 <p><img src="02_geovisualization_files/02_geovisualization_44_0.png" alt="png"></p>
 <h2 id="folium">Folium</h2>
-<p>In addition to using matplotlib, the viz module includes components that interface with the <a href="http://folium.readthedocs.io/en/latest/" target="_blank">folium</a> library which provides a Pythonic way to generate <a href="http://leafletjs.com/" target="_blank">Leaflet</a> maps.</p>
+<p>In addition to using matplotlib, the viz module includes components that interface with the <a href="http://folium.readthedocs.io/en/latest/" _target="blank">folium</a> library which provides a Pythonic way to generate <a href="http://leafletjs.com/" _target="blank">Leaflet</a> maps.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> pysal <span class="hljs-keyword">as</span> ps
 <span class="hljs-keyword">import</span> geojson <span class="hljs-keyword">as</span> gj
 <span class="hljs-keyword">from</span> pysal.contrib.viz <span class="hljs-keyword">import</span> folium_mapping <span class="hljs-keyword">as</span> fm
 </code></pre>
-<p>First, we need to convert the data into a JSON format. JSON, short for &quot;Javascript Serialized Object Notation,&quot; is a simple and effective way to represent objects in a digital environment. For geographic information, the <a href="https://geojson.org" target="_blank">GeoJSON</a> standard defines how to represent geographic information in JSON format. Python programmers may be more comfortable thinking of JSON data as something akin to a standard Python dictionary. </p>
+<p>First, we need to convert the data into a JSON format. JSON, short for &quot;Javascript Serialized Object Notation,&quot; is a simple and effective way to represent objects in a digital environment. For geographic information, the <a href="https://geojson.org" _target="blank">GeoJSON</a> standard defines how to represent geographic information in JSON format. Python programmers may be more comfortable thinking of JSON data as something akin to a standard Python dictionary. </p>
 <pre><code class="lang-python">filepath = <span class="hljs-string">&apos;../data/texas.shp&apos;</span>[:<span class="hljs-number">-4</span>]
 shp = ps.open(filepath + <span class="hljs-string">&apos;.shp&apos;</span>)
 dbf = ps.open(filepath + <span class="hljs-string">&apos;.dbf&apos;</span>)
@@ -766,10 +766,10 @@ fm.choropleth_map(<span class="hljs-string">&apos;./example.json&apos;</span>, <
 
 
 
-<p>All color schemes are <a href="http://colorbrewer2.org" target="_blank">Color Brewer</a> and simply pass through to <code>Folium</code> on execution. </p>
+<p>All color schemes are <a href="http://colorbrewer2.org" _target="blank">Color Brewer</a> and simply pass through to <code>Folium</code> on execution. </p>
 <p>Folium supports up to 6 classes.</p>
 <h2 id="cartopy">Cartopy</h2>
-<p>Next we turn to <a href="http://scitools.org.uk/cartopy/" target="_blank">cartopy</a>.</p>
+<p>Next we turn to <a href="http://scitools.org.uk/cartopy/" _target="blank">cartopy</a>.</p>
 <pre><code class="lang-python"><span class="hljs-keyword">import</span> matplotlib.patches <span class="hljs-keyword">as</span> mpatches
 <span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
 <span class="hljs-keyword">import</span> cartopy.crs <span class="hljs-keyword">as</span> ccrs
@@ -892,9 +892,9 @@ legend =[ <span class="hljs-string">&quot;%3d&quot;</span>%ub <span class="hljs-
 choropleth(classes, c5, reader, legend, title=<span class="hljs-string">&quot;HR90 Quintiles&quot;</span>)
 </code></pre>
 <p><img src="02_geovisualization_files/02_geovisualization_81_0.png" alt="png"></p>
-<p>For an example publication and code where Cartopy was used for the mapping see: <a href="https://github.com/sjsrey/limaaag" target="_blank">Rey (2016)</a>.</p>
+<p>For an example publication and code where Cartopy was used for the mapping see: <a href="https://github.com/sjsrey/limaaag" _target="blank">Rey (2016)</a>.</p>
 <h2 id="bokeh">Bokeh</h2>
-<p><a href="http://bokeh.pydata.org/en/latest/" target="_blank">website</a></p>
+<p><a href="http://bokeh.pydata.org/en/latest/" _target="blank">website</a></p>
 <pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
 
 <span class="hljs-comment">#from bokeh.sampledata import us_counties, unemployment</span>
@@ -1040,7 +1040,7 @@ in addition to showing the Homicide rate, the rank of that rate is also shown.</
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Geovisualization","level":"1.7.2","depth":2,"next":{"title":"Spatial weights in PySAL","level":"1.7.3","depth":2,"path":"ipynb_md/03_spatial_weights.md","ref":"ipynb_md/03_spatial_weights.md","articles":[]},"previous":{"title":"Spatial data processing with PySAL","level":"1.7.1","depth":2,"path":"ipynb_md/01_data_processing.md","ref":"ipynb_md/01_data_processing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/02_geovisualization.md","mtime":"2016-06-26T16:07:48.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-06-26T16:09:58.496Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Geovisualization","level":"1.7.2","depth":2,"next":{"title":"Spatial weights in PySAL","level":"1.7.3","depth":2,"path":"ipynb_md/03_spatial_weights.md","ref":"ipynb_md/03_spatial_weights.md","articles":[]},"previous":{"title":"Spatial data processing with PySAL","level":"1.7.1","depth":2,"path":"ipynb_md/01_data_processing.md","ref":"ipynb_md/01_data_processing.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/02_geovisualization.md","mtime":"2016-07-04T10:11:33.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-04T10:12:51.936Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
