@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
-        <meta name="generator" content="GitBook 3.1.0">
+        <meta name="generator" content="GitBook 3.1.1">
         
         
         
@@ -691,7 +691,7 @@ W_insigs = Lag_HR90[LMo_HR90.p_sim &gt; <span class="hljs-number">.001</span>]
 <p>Then, since we have a lot of points, we can plot the points with a statistically insignficant LISA value lighter using the <code>alpha</code> keyword. In addition, we would like to plot the statistically significant points in a dark red color. </p>
 <pre><code class="lang-python">b,a = np.polyfit(HR90, Lag_HR90, <span class="hljs-number">1</span>)
 </code></pre>
-<p>Matplotlib has a list of <a href="http://matplotlib.org/examples/color/named_colors.html" _target="blank">named colors</a> and will interpret colors that are provided in hexadecimal strings:</p>
+<p>Matplotlib has a list of <a href="http://matplotlib.org/examples/color/named_colors.html" target="_blank">named colors</a> and will interpret colors that are provided in hexadecimal strings:</p>
 <pre><code class="lang-python">plt.plot(sigs, W_sigs, <span class="hljs-string">&apos;.&apos;</span>, color=<span class="hljs-string">&apos;firebrick&apos;</span>)
 plt.plot(insigs, W_insigs, <span class="hljs-string">&apos;.k&apos;</span>, alpha=<span class="hljs-number">.2</span>)
  <span class="hljs-comment"># dashed vert at mean of the last year&apos;s PCI</span>
@@ -1101,7 +1101,7 @@ sns.kdeplot(data.HR60)
 <ol>
 <li>Repeat the global analysis for the years 1960, 70, 80 and compare the results to what we found in 1990.</li>
 <li>The local analysis can also be repeated for the other decades. How many counties are hot spots in each of the periods?</li>
-<li>The recent <a href="http://www.bbc.com/news/uk-politics-32810887" _target="blank">Brexit vote</a> provides a timely example where local spatial autocorrelation analysis can provide interesting insights.  One <a href="https://gist.github.com/darribas/691ad184280590d1219ffcf9a1678030" _target="blank">local analysis of the vote to leave</a> has recently been repored. Extend this to do an analysis of the attribute <code>Pct_remain</code>. Do the hot spots for the leave vote concord with the cold spots for the remain vote?</li>
+<li>The recent <a href="http://www.bbc.com/news/uk-politics-32810887" target="_blank">Brexit vote</a> provides a timely example where local spatial autocorrelation analysis can provide interesting insights.  One <a href="https://gist.github.com/darribas/691ad184280590d1219ffcf9a1678030" target="_blank">local analysis of the vote to leave</a> has recently been repored. Extend this to do an analysis of the attribute <code>Pct_remain</code>. Do the hot spots for the leave vote concord with the cold spots for the remain vote?</li>
 </ol>
 
                                 
@@ -1146,7 +1146,7 @@ sns.kdeplot(data.HR60)
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"ESDA with PySAL","level":"1.7.4","depth":2,"next":{"title":"Space-time analysis","level":"1.7.5","depth":2,"path":"ipynb_md/05_spatial_dynamics.md","ref":"ipynb_md/05_spatial_dynamics.md","articles":[]},"previous":{"title":"Spatial weights in PySAL","level":"1.7.3","depth":2,"path":"ipynb_md/03_spatial_weights.md","ref":"ipynb_md/03_spatial_weights.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/04_esda.md","mtime":"2016-07-04T10:19:40.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-04T10:21:41.600Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"ESDA with PySAL","level":"1.7.4","depth":2,"next":{"title":"Space-time analysis","level":"1.7.5","depth":2,"path":"ipynb_md/05_spatial_dynamics.md","ref":"ipynb_md/05_spatial_dynamics.md","articles":[]},"previous":{"title":"Spatial weights in PySAL","level":"1.7.3","depth":2,"path":"ipynb_md/03_spatial_weights.md","ref":"ipynb_md/03_spatial_weights.md","articles":[]},"dir":"ltr"},"config":{"plugins":["katex"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"katex":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Serif","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Geographic Data Science with PySAL and the pydata stack","gitbook":">=3.0.0","description":"Booklet with material for the workshop at Scipy'16"},"file":{"path":"ipynb_md/04_esda.md","mtime":"2016-07-12T14:27:38.000Z","type":"markdown"},"gitbook":{"version":"3.1.1","time":"2016-07-12T14:37:18.052Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
