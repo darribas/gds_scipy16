@@ -9,6 +9,7 @@ notebooks:
 	jupyter nbconvert --to markdown --output-dir ipynb_md/ content/part2/08_spatial_regression.ipynb
 	rm -fr content/part1/.ipynb_checkpoints/
 	rm -fr content/part2/.ipynb_checkpoints/
+	rm gds_scipy16.zip
 	zip -r gds_scipy16.zip content
 website:
 	#gitbook pdf ./ ./gds_scipy16.pdf
