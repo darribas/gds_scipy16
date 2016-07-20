@@ -1,7 +1,0 @@
-# conda create --name <name> --file conda_env.yml
-numpy
-scipy
-pandas
-numexpr
-pysal
-seaborn
